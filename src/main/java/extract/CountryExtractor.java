@@ -1,15 +1,11 @@
 package extract;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -25,11 +21,10 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import entities.Country;
-import entities.IbdStudy;
 
 public class CountryExtractor {
 
-	public void extract(Set countrySet) {
+	public void extract(Set countrySet) throws ClientProtocolException, IOException {
 		ArrayList<Country> countries = new ArrayList<>();
 
 		Iterator<String> it = countrySet.iterator();
@@ -41,33 +36,24 @@ public class CountryExtractor {
 					"http://api.openstreetmap.fr/oapi/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A200%5D%3B%28node%5B%22name%3Aen%22%3D%22"
 							+ URLEncoder.encode(country) + "%22%5D%3B%29%3Bout%20body%3B%3E%3Bout%20skel%20qt%3B%0A");
 			HttpResponse response;
-			try {
-				response = client.execute(request);
-				long population = 0;
-				if (country.equals("Czechia"))
-					population = 10516125;
-				else {
-					population = Long.parseLong(new JsonReaderService().getValueOfFirstKeyAppearance("population",
-							new Scanner(response.getEntity().getContent())));
-				}
-				countries.add(new Country(country, population));
-
-			} catch (Exception e) {
-				e.printStackTrace();
+			response = client.execute(request);
+			long population = 0;
+			if (country.equals("Czechia"))
+				population = 10516125;
+			else {
+				population = Long.parseLong(new JsonReaderService().getValueOfFirstKeyAppearance("population",
+						new Scanner(response.getEntity().getContent())));
 			}
+			countries.add(new Country(country, population));
+
 			request.releaseConnection();
 			request.reset();
 		}
-		
+
 		Type typeOfSrc = new TypeToken<ArrayList<Country>>() {
 		}.getType();
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		try {
-			FileUtils.writeStringToFile(new File("json/countries.json"), gson.toJson(countries, typeOfSrc));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		FileUtils.writeStringToFile(new File("json/countries.json"), gson.toJson(countries, typeOfSrc));
 
 	}
 

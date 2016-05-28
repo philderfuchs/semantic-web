@@ -18,7 +18,12 @@ public class Main {
 		CountrySetCreator creator = new CountrySetCreator();
 		Set<String> countrySet = creator.createCountrySet();
 		CountryExtractor countryExtractor = new CountryExtractor();
-		countryExtractor.extract(countrySet);
+		try {
+			countryExtractor.extract(countrySet);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 //		for(String s : countrySet) {
 //			System.out.println(s);
