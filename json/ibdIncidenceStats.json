@@ -1,6 +1,6 @@
 [
   {
-    "country": "Czech Republic",
+    "country": "Czechia",
     "year": "1978",
     "cdIncidence": -1.0,
     "ucIncidence": 1.3
@@ -40,12 +40,6 @@
     "year": "1989",
     "cdIncidence": 0.7,
     "ucIncidence": 1.5
-  },
-  {
-    "country": "France",
-    "year": "2007",
-    "cdIncidence": 6.7,
-    "ucIncidence": 3.4
   },
   {
     "country": "Germany",
@@ -220,12 +214,6 @@
     "year": "1993",
     "cdIncidence": 3.5,
     "ucIncidence": 4.3
-  },
-  {
-    "country": "France",
-    "year": "1993",
-    "cdIncidence": 8.1,
-    "ucIncidence": 5.6
   },
   {
     "country": "Italy",

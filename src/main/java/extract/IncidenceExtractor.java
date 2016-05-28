@@ -32,6 +32,9 @@ public class IncidenceExtractor {
 						continue;
 					if (country.equals("UK"))
 						country = "United Kingdom";
+					if(country.equals("Czech Republic"))
+						country = "Czechia";
+					if(country.equals("France")) continue;
 					String year = cells[2].contains("–") ? cells[2].split("–")[1] : cells[2];
 					year = year.equals("") ? "1993" : year;
 					double cdIncidence = cells[3].equals("NA") ? -1 : Double.parseDouble(cells[3]);
