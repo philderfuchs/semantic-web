@@ -57,28 +57,6 @@ public class CountryExtractor {
 
 	}
 
-	private String getIdOfCountry(String country) throws ClientProtocolException, IOException {
-
-		HttpClient client = new DefaultHttpClient();
-		HttpGet request = new HttpGet(
-				"http://api.openstreetmap.fr/oapi/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A200%5D%3B%28relation%5B%22name%3Aen%22%3D%22"
-						+ URLEncoder.encode(country)
-						+ "%22%5D%5B%22type%22%3D%22boundary%22%5D%3B%29%3Bout%20body%3B%3E%3Bout%20skel%20qt%3B%0A");
-		HttpResponse response = client.execute(request);
-		String id = new JsonReaderService().getValueOfFirstKeyAppearance("id",
-				new Scanner(response.getEntity().getContent()));
-		request.releaseConnection();
-		request.reset();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return id;
-	}
-
 	// private Map createCountryIdMap(Set countrySet) throws
 	// ClientProtocolException, IOException {
 	// Map<String, String> countryIdMap = new HashMap();
