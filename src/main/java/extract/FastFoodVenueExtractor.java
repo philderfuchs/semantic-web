@@ -31,11 +31,12 @@ public class FastFoodVenueExtractor {
 	public void extract(Set countrySet) throws ClientProtocolException, IOException {
 		Iterator<String> it = countrySet.iterator();
 		ArrayList<FastFoodVenue> fastFoodVenues = new ArrayList<>();
+		CountrySetCreator setCreator = new CountrySetCreator();
 
 		while (it.hasNext()) {
 			String country = it.next();
 
-			Long id = 3600000000L + Long.parseLong(new OverpassApiService().getIdOfCountry(country));
+			Long id = 3600000000L + Long.parseLong(new OverpassApiService().getIdOfCountry(setCreator.convertToOpenstreetmapName(country)));
 
 			System.out.println(country);
 			System.out.println(id);

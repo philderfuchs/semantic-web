@@ -13,20 +13,12 @@ import org.jsoup.select.Elements;
 public class Main {
 
 	public static void main(String[] args) {
+		IncidenceExtractor incidenceExtractor = new IncidenceExtractor();
+		incidenceExtractor.extract();
 		
 		CountrySetCreator creator = new CountrySetCreator();
 		Set<String> countrySet = creator.createCountrySet();
-		FastFoodVenueExtractor fastFoodExtractor = new FastFoodVenueExtractor();
-		try {
-			fastFoodExtractor.extract(countrySet);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-//		IncidenceExtractor incidenceExtractor = new IncidenceExtractor();
-//		incidenceExtractor.extract();
-
 //		CountryExtractor countryExtractor = new CountryExtractor();
 //		try {
 //			countryExtractor.extract(countrySet);
@@ -34,9 +26,22 @@ public class Main {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		
-//		for(String s : countrySet) {
-//			System.out.println(s);
+//		
+		FastFoodVenueExtractor fastFoodExtractor = new FastFoodVenueExtractor();
+		try {
+			fastFoodExtractor.extract(countrySet);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	
+//		SuicideRateExtractor suicideRateExtractor = new SuicideRateExtractor();
+//		try {
+//			suicideRateExtractor.extract(countrySet);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
 //		}
 
 	}

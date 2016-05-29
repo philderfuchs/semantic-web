@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -15,8 +16,9 @@ import entities.IbdStudy;
 
 public class CountrySetCreator {
 
-	public Set createCountrySet() {
-//		File file = new File(getClass().getClassLoader().getResource("ibdIncidenceStats.json").getFile());
+	public Set<String> createCountrySet() {
+		// File file = new
+		// File(getClass().getClassLoader().getResource("ibdIncidenceStats.json").getFile());
 		Gson gson = new Gson();
 		Set<String> countrySet = new HashSet<>();
 
@@ -28,16 +30,25 @@ public class CountrySetCreator {
 			Type type = new TypeToken<ArrayList<IbdStudy>>() {
 			}.getType();
 			ArrayList<IbdStudy> ibdStudies = (ArrayList<IbdStudy>) gson.fromJson(jsonString.toString(), type);
-			
-			for(IbdStudy study : ibdStudies) {
+
+			for (IbdStudy study : ibdStudies) {
 				countrySet.add(study.getCountry());
 			}
-			
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return countrySet;
 	}
-	
+
+	public String convertToOpenstreetmapName(String name) {
+
+		if (name.equals("Czech Republic")) {
+			return "Czechia";
+		} else {
+			return name;
+		}
+
+	}
+
 }

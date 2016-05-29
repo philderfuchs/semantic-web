@@ -28,13 +28,14 @@ public class IncidenceExtractor {
 				String[] cells = line.split("<comma>\\s+|\\,");
 				if (cells.length == 5) {
 					String country = cells[0].split("[1-9]")[0];
-					if (country.equals("Country") || country.contains("Europe"))
+					if (country.equals("Country") || country.contains("Europe") || this.skipCountry(country))
 						continue;
 					if (country.equals("UK"))
 						country = "United Kingdom";
-					if(country.equals("Czech Republic"))
-						country = "Czechia";
-					if(country.equals("France")) continue;
+					// if(country.equals("Czech Republic"))
+					// country = "Czechia";
+					if (country.equals("France"))
+						continue;
 					String year = cells[2].contains("–") ? cells[2].split("–")[1] : cells[2];
 					year = year.equals("") ? "1993" : year;
 					double cdIncidence = cells[3].equals("NA") ? -1 : Double.parseDouble(cells[3]);
@@ -53,6 +54,15 @@ public class IncidenceExtractor {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
 
+	private boolean skipCountry(String s) {
+		if (s.equals("Faroe Islands")) {
+			return true;
+		} else if (s.equals("Czech Republic")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
