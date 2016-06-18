@@ -63,7 +63,7 @@ public class FastFoodVenueExtractor {
 		}
 		Type typeOfSrc = new TypeToken<ArrayList<FastFoodVenue>>() {
 		}.getType();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 		FileUtils.writeStringToFile(new File("json/fastFoodVenues.json"), gson.toJson(fastFoodVenues, typeOfSrc));
 	}
 

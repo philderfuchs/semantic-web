@@ -27,26 +27,21 @@ public class Main {
 //		IbdIncidenceExtractor ibdIncidenceExtractor = new IbdIncidenceExtractor();
 //		ibdIncidenceExtractor.extract(countrySet);
 
-
-		SuicideRateExtractor suicideRateExtractor = new SuicideRateExtractor();
-		try {
-			suicideRateExtractor.extract(countrySet);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	
-		
-
-//		
-//		FastFoodVenueExtractor fastFoodExtractor = new FastFoodVenueExtractor();
+//		SuicideRateExtractor suicideRateExtractor = new SuicideRateExtractor();
 //		try {
-//			fastFoodExtractor.extract(countrySet);
-//		} catch (IOException e) {
+//			suicideRateExtractor.extract(countrySet);
+//		} catch (Exception e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+				
+		FastFoodVenueExtractor fastFoodExtractor = new FastFoodVenueExtractor();
+		try {
+			fastFoodExtractor.extract(countrySet);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
