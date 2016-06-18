@@ -31,7 +31,7 @@ public class FastFoodVenueExtractor {
 	public void extract(Set countrySet) throws ClientProtocolException, IOException {
 		Iterator<String> it = countrySet.iterator();
 		ArrayList<FastFoodVenue> fastFoodVenues = new ArrayList<>();
-		CountrySetCreator setCreator = new CountrySetCreator();
+		CountryMaster setCreator = new CountryMaster();
 
 		while (it.hasNext()) {
 			String country = it.next();

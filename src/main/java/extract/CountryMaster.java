@@ -12,9 +12,10 @@ import java.util.Set;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import entities.Country;
 import entities.IbdStudy;
 
-public class CountrySetCreator {
+public class CountryMaster {
 
 	public Set<String> createCountrySet() {
 		// File file = new
@@ -23,22 +24,35 @@ public class CountrySetCreator {
 		Set<String> countrySet = new HashSet<>();
 
 		StringBuilder jsonString = new StringBuilder();
-		try (Scanner scanner = new Scanner(new File("./json/ibdIncidenceStats.json"))) {
+		try (Scanner scanner = new Scanner(new File("./json/countries.json"))) {
 			while (scanner.hasNextLine()) {
 				jsonString.append(scanner.nextLine());
 			}
-			Type type = new TypeToken<ArrayList<IbdStudy>>() {
+			Type type = new TypeToken<ArrayList<Country>>() {
 			}.getType();
-			ArrayList<IbdStudy> ibdStudies = (ArrayList<IbdStudy>) gson.fromJson(jsonString.toString(), type);
+			ArrayList<Country> countries = (ArrayList<Country>) gson.fromJson(jsonString.toString(), type);
 
-			for (IbdStudy study : ibdStudies) {
-				countrySet.add(study.getCountry());
+			for (Country country : countries) {
+				countrySet.add(country.getName());
 			}
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("Created countrieset");
+
 		return countrySet;
+	}
+	
+	public static String convertToStandardCountryName(String s) {
+		if (s.equals("United Kingdom of Great Britain and Northern Ireland")) {
+			return "United Kingdom";
+		} else if (s.equals("The Netherlands")) {
+			return "Netherlands";
+		} else {
+			return s;
+		}
 	}
 
 	public String convertToOpenstreetmapName(String name) {

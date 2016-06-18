@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 
@@ -14,9 +15,9 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class IncidenceExtractor {
+public class IbdIncidenceExtractor {
 
-	public void extract() {
+	public void extract(Set<String> countrySet) {
 
 		File file = new File(getClass().getClassLoader().getResource("incidence.csv").getFile());
 		try (Scanner scanner = new Scanner(file)) {

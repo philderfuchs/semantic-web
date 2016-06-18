@@ -1,78 +1,202 @@
 [
   {
-    "name": "The Netherlands",
-    "population": 16645313
+    "name": "Albania",
+    "population": 2831741
   },
   {
-    "name": "Romania",
-    "population": 21498616
+    "name": "Andorra",
+    "population": 68403
   },
   {
-    "name": "Hungary",
-    "population": 9930915
+    "name": "Armenia",
+    "population": 3229900
   },
   {
-    "name": "United Kingdom",
-    "population": 61792000
+    "name": "Austria",
+    "population": 8169929
   },
   {
-    "name": "Portugal",
-    "population": 10562178
+    "name": "Azerbaijan",
+    "population": 9165000
   },
   {
-    "name": "Iceland",
-    "population": 320000
-  },
-  {
-    "name": "Spain",
-    "population": 46157822
-  },
-  {
-    "name": "Greece",
-    "population": 11260402
-  },
-  {
-    "name": "Sweden",
-    "population": 9276509
+    "name": "Belarus",
+    "population": 9458000
   },
   {
     "name": "Belgium",
-    "population": 11035948
+    "population": 11007000
   },
   {
-    "name": "Norway",
-    "population": 4785200
+    "name": "Bosnia and Herzegovina",
+    "population": 3843126
   },
   {
-    "name": "Ireland",
-    "population": 4635400
-  },
-  {
-    "name": "Finland",
-    "population": 5429894
-  },
-  {
-    "name": "Denmark",
-    "population": 5475791
-  },
-  {
-    "name": "Italy",
-    "population": 59619290
-  },
-  {
-    "name": "Israel",
-    "population": 7836300
-  },
-  {
-    "name": "Germany",
-    "population": 81879976
-  },
-  {
-    "name": "Estonia",
-    "population": 1307605
+    "name": "Bulgaria",
+    "population": 7621337
   },
   {
     "name": "Croatia",
-    "population": 4284889
+    "population": 4437460
+  },
+  {
+    "name": "Cyprus",
+    "population": 788457
+  },
+  {
+    "name": "Czech Republic",
+    "population": 10256760
+  },
+  {
+    "name": "Denmark",
+    "population": 5564219
+  },
+  {
+    "name": "Estonia",
+    "population": 1340194
+  },
+  {
+    "name": "Finland",
+    "population": 5157537
+  },
+  {
+    "name": "France",
+    "population": 66104000
+  },
+  {
+    "name": "Georgia",
+    "population": 4661473
+  },
+  {
+    "name": "Germany",
+    "population": 80716000
+  },
+  {
+    "name": "Greece",
+    "population": 11123034
+  },
+  {
+    "name": "Hungary",
+    "population": 10075034
+  },
+  {
+    "name": "Iceland",
+    "population": 307261
+  },
+  {
+    "name": "Ireland",
+    "population": 4234925
+  },
+  {
+    "name": "Italy",
+    "population": 60655464
+  },
+  {
+    "name": "Kazakhstan",
+    "population": 15217711
+  },
+  {
+    "name": "Latvia",
+    "population": 2067900
+  },
+  {
+    "name": "Liechtenstein",
+    "population": 32842
+  },
+  {
+    "name": "Lithuania",
+    "population": 2988400
+  },
+  {
+    "name": "Luxembourg",
+    "population": 448569
+  },
+  {
+    "name": "(Former Yugoslav Republic of) Macedonia",
+    "population": 2054800
+  },
+  {
+    "name": "Malta",
+    "population": 397499
+  },
+  {
+    "name": "Moldova",
+    "population": 4434547
+  },
+  {
+    "name": "Monaco",
+    "population": 31987
+  },
+  {
+    "name": "Montenegro",
+    "population": 616258
+  },
+  {
+    "name": "Netherlands",
+    "population": 16902103
+  },
+  {
+    "name": "Norway",
+    "population": 5018836
+  },
+  {
+    "name": "Poland",
+    "population": 38625478
+  },
+  {
+    "name": "Portugal",
+    "population": 10409995
+  },
+  {
+    "name": "Romania",
+    "population": 21698181
+  },
+  {
+    "name": "Russia",
+    "population": 143975923
+  },
+  {
+    "name": "San Marino",
+    "population": 27730
+  },
+  {
+    "name": "Serbia",
+    "population": 7120666
+  },
+  {
+    "name": "Slovakia",
+    "population": 5422366
+  },
+  {
+    "name": "Slovenia",
+    "population": 2050189
+  },
+  {
+    "name": "Spain",
+    "population": 47059533
+  },
+  {
+    "name": "Sweden",
+    "population": 9090113
+  },
+  {
+    "name": "Switzerland",
+    "population": 7507000
+  },
+  {
+    "name": "Turkey",
+    "population": 77695904
+  },
+  {
+    "name": "Ukraine",
+    "population": 45360000
+  },
+  {
+    "name": "United Kingdom",
+    "population": 64105654
+  },
+  {
+    "name": "Vatican City",
+    "population": 900
   }
 ]
