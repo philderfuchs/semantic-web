@@ -28,15 +28,13 @@ import entities.FastFoodVenue;
 
 public class FastFoodVenueExtractor {
 
-	public void extract(Set countrySet) throws ClientProtocolException, IOException {
-		Iterator<String> it = countrySet.iterator();
+	public void extract(Set<String> countrySet) throws ClientProtocolException, IOException {
 		ArrayList<FastFoodVenue> fastFoodVenues = new ArrayList<>();
-		CountryMaster setCreator = new CountryMaster();
 
-		while (it.hasNext()) {
-			String country = it.next();
+		for(String country : countrySet) {
 
-			Long id = 3600000000L + Long.parseLong(new OverpassApiService().getIdOfCountry(setCreator.convertToOpenstreetmapName(country)));
+			new OverpassApiService();
+			Long id = 3600000000L + Long.parseLong(OverpassApiService.getIdOfCountry(country));
 
 			System.out.println(country);
 			System.out.println(id);

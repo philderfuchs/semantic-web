@@ -16,6 +16,10 @@
     "rate": 6.79038
   },
   {
+    "country": "(Former Yugoslav Republic of) Macedonia",
+    "rate": 6.65291
+  },
+  {
     "country": "Denmark",
     "rate": 11.17013
   },
@@ -30,6 +34,10 @@
   {
     "country": "Serbia",
     "rate": 16.79193
+  },
+  {
+    "country": "Russia",
+    "rate": 22.34911
   },
   {
     "country": "Romania",

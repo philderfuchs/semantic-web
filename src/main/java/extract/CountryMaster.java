@@ -39,26 +39,32 @@ public class CountryMaster {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		System.out.println("Created countrieset");
 
 		return countrySet;
 	}
-	
+
 	public static String convertToStandardCountryName(String s) {
 		if (s.equals("United Kingdom of Great Britain and Northern Ireland")) {
 			return "United Kingdom";
 		} else if (s.equals("The Netherlands")) {
 			return "Netherlands";
+		} else if (s.equals("The former Yugoslav republic of Macedonia")) {
+			return "(Former Yugoslav Republic of) Macedonia";
+		} else if (s.equals("Russian Federation")) {
+			return "Russia";
 		} else {
 			return s;
 		}
 	}
 
-	public String convertToOpenstreetmapName(String name) {
+	public static String convertStandardCountryNameToOsmName(String name) {
 
-		if (name.equals("Czech Republic")) {
-			return "Czechia";
+		if (name.equals("(Former Yugoslav Republic of) Macedonia")) {
+			return "Macedonia";
+		} else if (name.equals("Russia")) {
+			return "Russian Federation";
 		} else {
 			return name;
 		}
