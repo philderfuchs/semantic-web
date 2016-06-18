@@ -36,9 +36,6 @@ public class FastFoodVenueExtractor {
 			new OverpassApiService();
 			Long id = 3600000000L + Long.parseLong(OverpassApiService.getIdOfCountry(country));
 
-			System.out.println(country);
-			System.out.println(id);
-
 			HttpClient client = new DefaultHttpClient();
 			HttpGet request = new HttpGet(
 					"http://api.openstreetmap.fr/oapi/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A200%5D%3Barea%28"
@@ -60,6 +57,8 @@ public class FastFoodVenueExtractor {
 				String name = tags.has("name") ? tags.getString("name") : "unknown";
 				fastFoodVenues.add(new FastFoodVenue(country, name));
 			}
+			System.out.println("Got fastfood-data. Name: " + country + " | Overpass-Region-Id: " + id + " | Count of venues: " + array.length());
+
 		}
 		Type typeOfSrc = new TypeToken<ArrayList<FastFoodVenue>>() {
 		}.getType();

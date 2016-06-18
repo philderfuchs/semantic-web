@@ -14,7 +14,6 @@ public class OverpassApiService {
 	
 	public static String getIdOfCountry(String country) throws ClientProtocolException, IOException {
 		if(country.equals("Netherlands")) return "47796";
-		if(country.equals("Romania")) return "6099715";
 		if(country.equals("Ireland")) return "6040654";
 		if(country.equals("France")) return "2202162";
 		if(country.equals("Georgia")) return "161957";
