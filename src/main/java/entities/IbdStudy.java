@@ -2,13 +2,17 @@ package entities;
 
 public class IbdStudy {
 	String country;
-	String year;
+	String startYear;
+	String endYear;
 	double cdIncidence;
 	double ucIncidence;
-	public IbdStudy(String country, String year, double cdIncidence, double ucIncidence) {
+	
+	
+	public IbdStudy(String country, String startYear, String endYear, double cdIncidence, double ucIncidence) {
 		super();
 		this.country = country;
-		this.year = year;
+		this.startYear = startYear;
+		this.endYear = endYear;
 		this.cdIncidence = cdIncidence;
 		this.ucIncidence = ucIncidence;
 	}
@@ -18,11 +22,17 @@ public class IbdStudy {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public String getYear() {
-		return year;
+	public String getStartYear() {
+		return startYear;
 	}
-	public void setYear(String year) {
-		this.year = year;
+	public void setStartYear(String startYear) {
+		this.startYear = startYear;
+	}
+	public String getEndYear() {
+		return endYear;
+	}
+	public void setEndYear(String endYear) {
+		this.endYear = endYear;
 	}
 	public double getCdIncidence() {
 		return cdIncidence;
@@ -36,5 +46,7 @@ public class IbdStudy {
 	public void setUcIncidence(double ucIncidence) {
 		this.ucIncidence = ucIncidence;
 	}
+	
+	
 	
 }

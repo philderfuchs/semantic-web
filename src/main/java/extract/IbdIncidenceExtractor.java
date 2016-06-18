@@ -28,20 +28,24 @@ public class IbdIncidenceExtractor {
 				// System.out.println(line);
 				String[] cells = line.split("<comma>\\s+|\\,");
 				if (cells.length == 5) {
-					String country = cells[0].split("[1-9]")[0];
-					if (country.equals("Country") || country.contains("Europe") || this.skipCountry(country))
+					String country = CountryMaster.convertToStandardCountryName(cells[0].split("[1-9]")[0]);
+
+					if (country.equals("Country") || country.contains("Europe") || !countrySet.contains(country))
 						continue;
-					if (country.equals("UK"))
-						country = "United Kingdom";
-					// if(country.equals("Czech Republic"))
-					// country = "Czechia";
-					if (country.equals("France"))
+					if (cells[3].equals("NA") || cells[4].equals("NA"))
 						continue;
-					String year = cells[2].contains("–") ? cells[2].split("–")[1] : cells[2];
-					year = year.equals("") ? "1993" : year;
-					double cdIncidence = cells[3].equals("NA") ? -1 : Double.parseDouble(cells[3]);
-					double ucIncidence = cells[4].equals("NA") ? -1 : Double.parseDouble(cells[4]);
-					ibdStudies.add(new IbdStudy(country, year, cdIncidence, ucIncidence));
+
+					String startYear, endYear;
+					if (cells[2].equals("")) {
+						startYear = "1991";
+						endYear = "1993";
+					} else {
+						startYear = cells[2].split("–")[0];
+						endYear = cells[2].split("–")[1];
+					}
+					double cdIncidence = Double.parseDouble(cells[3]);
+					double ucIncidence = Double.parseDouble(cells[4]);
+					ibdStudies.add(new IbdStudy(country, startYear, endYear, cdIncidence, ucIncidence));
 				}
 			}
 
@@ -57,13 +61,4 @@ public class IbdIncidenceExtractor {
 		}
 	}
 
-	private boolean skipCountry(String s) {
-		if (s.equals("Faroe Islands")) {
-			return true;
-		} else if (s.equals("Czech Republic")) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 }
