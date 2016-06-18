@@ -31,7 +31,7 @@ public class FastFoodVenueExtractor {
 	public void extract(Set<String> countrySet) throws ClientProtocolException, IOException {
 		ArrayList<FastFoodVenue> fastFoodVenues = new ArrayList<>();
 
-		for(String country : countrySet) {
+		for (String country : countrySet) {
 
 			new OverpassApiService();
 			Long id = 3600000000L + Long.parseLong(OverpassApiService.getIdOfCountry(country));
@@ -55,9 +55,10 @@ public class FastFoodVenueExtractor {
 				JSONObject node = (JSONObject) array.get(i);
 				JSONObject tags = node.getJSONObject("tags");
 				String name = tags.has("name") ? tags.getString("name") : "unknown";
-				fastFoodVenues.add(new FastFoodVenue(country, name));
+				fastFoodVenues.add(new FastFoodVenue(country, name, node.getLong("id")));
 			}
-			System.out.println("Got fastfood-data. Name: " + country + " | Overpass-Region-Id: " + id + " | Count of venues: " + array.length());
+			System.out.println("Got fastfood-data. Name: " + country + " | Overpass-Region-Id: " + id
+					+ " | Count of venues: " + array.length());
 
 		}
 		Type typeOfSrc = new TypeToken<ArrayList<FastFoodVenue>>() {

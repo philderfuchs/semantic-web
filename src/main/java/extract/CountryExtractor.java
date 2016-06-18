@@ -41,7 +41,7 @@ public class CountryExtractor {
 				break;
 
 			countries.add(new Country(row.child(2).text().split("\\s\\[")[0],
-					Long.parseLong(row.child(4).text().replace(",", ""))));
+					Integer.parseInt(row.child(4).text().replace(",", ""))));
 		}
 		
 		System.out.println("Writing Json");

@@ -3,9 +3,9 @@ package entities;
 public class Country {
 
 	String name;
-	long population;
+	int population;
 	
-	public Country(String name, long population) {
+	public Country(String name, int population) {
 		super();
 		this.name = name;
 		this.population = population;
@@ -17,10 +17,10 @@ public class Country {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getPopulation() {
+	public int getPopulation() {
 		return population;
 	}
-	public void setPopulation(long population) {
+	public void setPopulation(int population) {
 		this.population = population;
 	}
 	

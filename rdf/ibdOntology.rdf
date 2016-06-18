@@ -1,0 +1,266 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:pa="http://www.imn.htwk-leipzig.de/~panders/schema#"
+    xmlns:geo="http://www.geonames.org/ontology#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Class rdf:about="http://www.imn.htwk-leipzig.de/~panders/schema#country"/>
+  <owl:DatatypeProperty rdf:about="http://www.geonames.org/ontology#population">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/schema#country"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.geonames.org/ontology#name">
+    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/schema#country"/>
+  </owl:DatatypeProperty>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Latvia">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2067900</geo:population>
+    <geo:name>Latvia</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Poland">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >38625478</geo:population>
+    <geo:name>Poland</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Finland">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >5157537</geo:population>
+    <geo:name>Finland</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Slovakia">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >5422366</geo:population>
+    <geo:name>Slovakia</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Spain">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >47059533</geo:population>
+    <geo:name>Spain</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Moldova">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4434547</geo:population>
+    <geo:name>Moldova</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/%28Former+Yugoslav+Republic+of%29+Macedonia">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2054800</geo:population>
+    <geo:name>(Former Yugoslav Republic of) Macedonia</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Ireland">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4234925</geo:population>
+    <geo:name>Ireland</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Czech+Republic">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >10256760</geo:population>
+    <geo:name>Czech Republic</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Croatia">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4437460</geo:population>
+    <geo:name>Croatia</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Vatican+City">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >900</geo:population>
+    <geo:name>Vatican City</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Switzerland">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >7507000</geo:population>
+    <geo:name>Switzerland</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Liechtenstein">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >32842</geo:population>
+    <geo:name>Liechtenstein</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Norway">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >5018836</geo:population>
+    <geo:name>Norway</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/France">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >66104000</geo:population>
+    <geo:name>France</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Malta">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >397499</geo:population>
+    <geo:name>Malta</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Romania">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >21698181</geo:population>
+    <geo:name>Romania</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Luxembourg">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >448569</geo:population>
+    <geo:name>Luxembourg</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/United+Kingdom">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >64105654</geo:population>
+    <geo:name>United Kingdom</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Turkey">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >77695904</geo:population>
+    <geo:name>Turkey</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Estonia">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >1340194</geo:population>
+    <geo:name>Estonia</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Italy">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >60655464</geo:population>
+    <geo:name>Italy</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Hungary">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >10075034</geo:population>
+    <geo:name>Hungary</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Armenia">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >3229900</geo:population>
+    <geo:name>Armenia</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Georgia">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4661473</geo:population>
+    <geo:name>Georgia</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Netherlands">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >16902103</geo:population>
+    <geo:name>Netherlands</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Cyprus">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >788457</geo:population>
+    <geo:name>Cyprus</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Germany">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >80716000</geo:population>
+    <geo:name>Germany</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Bulgaria">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >7621337</geo:population>
+    <geo:name>Bulgaria</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Sweden">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >9090113</geo:population>
+    <geo:name>Sweden</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Portugal">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >10409995</geo:population>
+    <geo:name>Portugal</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Belarus">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >9458000</geo:population>
+    <geo:name>Belarus</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Kazakhstan">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >15217711</geo:population>
+    <geo:name>Kazakhstan</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Bosnia+and+Herzegovina">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >3843126</geo:population>
+    <geo:name>Bosnia and Herzegovina</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/San+Marino">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >27730</geo:population>
+    <geo:name>San Marino</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Serbia">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >7120666</geo:population>
+    <geo:name>Serbia</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Greece">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >11123034</geo:population>
+    <geo:name>Greece</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Russia">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >143975923</geo:population>
+    <geo:name>Russia</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Ukraine">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >45360000</geo:population>
+    <geo:name>Ukraine</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Iceland">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >307261</geo:population>
+    <geo:name>Iceland</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Azerbaijan">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >9165000</geo:population>
+    <geo:name>Azerbaijan</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Austria">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >8169929</geo:population>
+    <geo:name>Austria</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Denmark">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >5564219</geo:population>
+    <geo:name>Denmark</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Montenegro">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >616258</geo:population>
+    <geo:name>Montenegro</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Monaco">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >31987</geo:population>
+    <geo:name>Monaco</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Belgium">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >11007000</geo:population>
+    <geo:name>Belgium</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Andorra">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >68403</geo:population>
+    <geo:name>Andorra</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Lithuania">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2988400</geo:population>
+    <geo:name>Lithuania</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Slovenia">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2050189</geo:population>
+    <geo:name>Slovenia</geo:name>
+  </pa:country>
+  <pa:country rdf:about="https://en.wikipedia.org/wiki/Albania">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2831741</geo:population>
+    <geo:name>Albania</geo:name>
+  </pa:country>
+</rdf:RDF>
