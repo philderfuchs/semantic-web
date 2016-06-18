@@ -1,7 +1,99 @@
 [
   {
+    "country": "Slovenia",
+    "rate": 17.09916
+  },
+  {
+    "country": "Sweden",
+    "rate": 13.19343
+  },
+  {
+    "country": "Poland",
+    "rate": 20.53808
+  },
+  {
+    "country": "Malta",
+    "rate": 6.79038
+  },
+  {
+    "country": "Denmark",
+    "rate": 11.17013
+  },
+  {
+    "country": "Albania",
+    "rate": 6.49718
+  },
+  {
+    "country": "Turkey",
+    "rate": 7.97064
+  },
+  {
+    "country": "Serbia",
+    "rate": 16.79193
+  },
+  {
+    "country": "Romania",
+    "rate": 12.78488
+  },
+  {
+    "country": "Netherlands",
+    "rate": 10.03449
+  },
+  {
+    "country": "Iceland",
+    "rate": 15.06979
+  },
+  {
+    "country": "Greece",
+    "rate": 4.92309
+  },
+  {
+    "country": "Georgia",
+    "rate": 3.77681
+  },
+  {
+    "country": "Bosnia and Herzegovina",
+    "rate": 13.87666
+  },
+  {
+    "country": "Bulgaria",
+    "rate": 14.48285
+  },
+  {
+    "country": "Austria",
+    "rate": 15.58428
+  },
+  {
+    "country": "Ukraine",
+    "rate": 20.12902
+  },
+  {
+    "country": "France",
+    "rate": 15.78652
+  },
+  {
+    "country": "Armenia",
+    "rate": 3.28902
+  },
+  {
+    "country": "Slovakia",
+    "rate": 12.60674
+  },
+  {
     "country": "Portugal",
     "rate": 12.48891
+  },
+  {
+    "country": "Latvia",
+    "rate": 21.78219
+  },
+  {
+    "country": "Luxembourg",
+    "rate": 10.89413
+  },
+  {
+    "country": "Lithuania",
+    "rate": 33.50274
   },
   {
     "country": "Italy",
@@ -16,12 +108,24 @@
     "rate": 16.68945
   },
   {
+    "country": "Switzerland",
+    "rate": 12.15134
+  },
+  {
     "country": "Belgium",
     "rate": 17.7747
   },
   {
     "country": "Norway",
     "rate": 10.21201
+  },
+  {
+    "country": "Montenegro",
+    "rate": 18.89417
+  },
+  {
+    "country": "Kazakhstan",
+    "rate": 24.24877
   },
   {
     "country": "Croatia",
@@ -36,32 +140,12 @@
     "rate": 7.0247
   },
   {
-    "country": "Romania",
-    "rate": 12.78488
+    "country": "Czech Republic",
+    "rate": 15.60314
   },
   {
-    "country": "The Netherlands",
-    "rate": 10.03449
-  },
-  {
-    "country": "Iceland",
-    "rate": 15.06979
-  },
-  {
-    "country": "Greece",
-    "rate": 4.92309
-  },
-  {
-    "country": "Sweden",
-    "rate": 13.19343
-  },
-  {
-    "country": "Israel",
-    "rate": 6.17953
-  },
-  {
-    "country": "Denmark",
-    "rate": 11.17013
+    "country": "Cyprus",
+    "rate": 5.14662
   },
   {
     "country": "Ireland",
@@ -74,5 +158,13 @@
   {
     "country": "Germany",
     "rate": 12.97631
+  },
+  {
+    "country": "Belarus",
+    "rate": 21.81038
+  },
+  {
+    "country": "Azerbaijan",
+    "rate": 1.65955
   }
 ]

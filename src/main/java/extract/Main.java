@@ -24,20 +24,19 @@ public class Main {
 		CountryMaster master = new CountryMaster();
 		Set<String> countrySet = master.createCountrySet();
 		
-		IbdIncidenceExtractor ibdIncidenceExtractor = new IbdIncidenceExtractor();
-		ibdIncidenceExtractor.extract(countrySet);
+//		IbdIncidenceExtractor ibdIncidenceExtractor = new IbdIncidenceExtractor();
+//		ibdIncidenceExtractor.extract(countrySet);
 
 
-//		SuicideRateExtractor suicideRateExtractor = new SuicideRateExtractor();
-//		try {
-//			suicideRateExtractor.extract(countrySet);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		SuicideRateExtractor suicideRateExtractor = new SuicideRateExtractor();
+		try {
+			suicideRateExtractor.extract(countrySet);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-		
-
+	
 		
 
 //		

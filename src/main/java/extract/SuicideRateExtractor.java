@@ -49,7 +49,7 @@ public class SuicideRateExtractor {
 			Node nNode = nList.item(i);
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				Element eElement = (Element) nNode;
-				String currentCountryName = this.convertToStandardCountryName(
+				String currentCountryName = CountryMaster.convertToStandardCountryName(
 						eElement.getElementsByTagName("COUNTRY").item(0).getTextContent());
 				if (countrySet.contains(currentCountryName)) {
 					suicideRateStudies.add(new SuicideRateStudy(currentCountryName,
@@ -62,16 +62,6 @@ public class SuicideRateExtractor {
 		}.getType();
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		FileUtils.writeStringToFile(new File("json/suicideRateStats.json"), gson.toJson(suicideRateStudies, typeOfSrc));
-	}
-
-	public String convertToStandardCountryName(String s) {
-		if (s.equals("United Kingdom of Great Britain and Northern Ireland")) {
-			return "United Kingdom";
-		} else if (s.equals("Netherlands")) {
-			return "The Netherlands";
-		} else {
-			return s;
-		}
 	}
 
 }
