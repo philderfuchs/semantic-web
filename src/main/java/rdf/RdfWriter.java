@@ -8,7 +8,9 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -51,9 +53,9 @@ public class RdfWriter extends Object {
 	DatatypeProperty nameProperty = model.createDatatypeProperty(geoPrefix + "name");
 	DatatypeProperty populationProperty = model.createDatatypeProperty(geoPrefix + "population");
 
-	OntClass suicideIncidence = model.createClass(paPrefix + "SuicideIncidence");
+	OntClass suicideStatClass = model.createClass(paPrefix + "SuicideStat");
 	DatatypeProperty rateProperty = model.createDatatypeProperty(paPrefix + "rate");
-	DatatypeProperty countryProperty = model.createDatatypeProperty(geoPrefix + "name");
+	DatatypeProperty countryProperty = model.createDatatypeProperty(geoPrefix + "country");
 
 	public void write() {
 		this.initializeModel();
@@ -70,23 +72,30 @@ public class RdfWriter extends Object {
 	private void addTriples() {
 		try {
 
-			for (Country country : this.<Country> getListFromJson("countries", new TypeToken<ArrayList<Country>>() {
-			}.getType())) {
-				model.createResource(wikiUrl + URLEncoder.encode(country.getName(), "UTF-8"))
-						.addProperty(nameProperty, country.getName())
-						.addProperty(populationProperty, model.createTypedLiteral(country.getPopulation()))
-						.addProperty(RDF.type, countryClass);
+			Map<String, Resource> countryResourceMap = new HashMap<>();
+
+			// Triplify countries
+			ArrayList<Country> countries = this.<Country> getListFromJson("countries",
+					new TypeToken<ArrayList<Country>>() {
+					}.getType());
+			for (Country country : countries) {
+				countryResourceMap.put(country.getName(),
+						model.createResource(wikiUrl + URLEncoder.encode(country.getName(), "UTF-8"))
+								.addProperty(nameProperty, country.getName())
+								.addProperty(populationProperty, model.createTypedLiteral(country.getPopulation()))
+								.addProperty(RDF.type, countryClass));
 			}
 
-			for (SuicideRateStudy suicideIncidence : this.<SuicideRateStudy> getListFromJson("suicideRateStats",
+			ArrayList<SuicideRateStudy> suicideRateStudies = this.<SuicideRateStudy> getListFromJson("suicideRateStats",
 					new TypeToken<ArrayList<SuicideRateStudy>>() {
-					}.getType())) {
-				model.createResource(
-						paPrefix + "SuicideIncidence/" + URLEncoder.encode(suicideIncidence.getCountry(), "UTF-8"))
-						.addProperty(rateProperty, model.createTypedLiteral(suicideIncidence.getRate())).addProperty(
-								countryProperty, wikiUrl + URLEncoder.encode(suicideIncidence.getCountry(), "UTF-8"));
-
+					}.getType());
+			for (SuicideRateStudy suicideStat : suicideRateStudies) {
+				model.createResource(paPrefix + "SuicideStat/" + URLEncoder.encode(suicideStat.getCountry(), "UTF-8"))
+						.addProperty(rateProperty, model.createTypedLiteral(suicideStat.getRate()))
+						.addProperty(countryProperty, countryResourceMap.get(suicideStat.getCountry()))
+						.addProperty(RDF.type, suicideStatClass);
 			}
+
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -99,9 +108,9 @@ public class RdfWriter extends Object {
 		populationProperty.addDomain(countryClass);
 		populationProperty.addRange(XSD.integer);
 
-		rateProperty.addDomain(suicideIncidence);
+		rateProperty.addDomain(suicideStatClass);
 		rateProperty.addRange(XSD.xdouble);
-		countryProperty.addDomain(suicideIncidence);
+		countryProperty.addDomain(suicideStatClass);
 		countryProperty.addRange(countryClass);
 
 		model.setNsPrefix("pa", paPrefix);
