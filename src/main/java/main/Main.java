@@ -1,22 +1,14 @@
-package extract;
+package main;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Set;
-
-import org.jsoup.*;
-import org.jsoup.nodes.*;
-import org.jsoup.select.Elements;
+import extract.*;
 
 import rdf.RdfWriter;
 
 public class Main {
 
 	public static void main(String[] args) {
-		RdfWriter writer = new RdfWriter();
-		writer.write();
+//		RdfWriter writer = new RdfWriter();
+//		writer.write();
 		
 //		CountryExtractor countryExtractor = new CountryExtractor();
 //		try {
