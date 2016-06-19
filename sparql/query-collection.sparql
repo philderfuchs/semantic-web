@@ -88,3 +88,140 @@ WHERE {
 }
 GROUP BY ?c
 ORDER BY ?to
+
+########################################
+Average CD Rate of newest Stats
+###
+
+PREFIX geo: <http://www.geonames.org/ontology#>
+PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+
+SELECT ?cdC (AVG(?r) as ?average)
+WHERE {
+ ?i a pa:CdStat.
+ ?i geo:country ?cdC.
+ ?i pa:to ?cdLatest.
+ ?i pa:rate ?r.
+ {
+    SELECT ?cdC (MAX(?cdTo) as ?cdLatest)
+    WHERE {
+     ?i a pa:CdStat.
+     ?i geo:country ?cdC.
+     ?i pa:to ?cdTo.
+    }
+    GROUP BY ?cdC
+    ORDER BY ?cdTo
+  }
+}
+GROUP BY ?cdC
+
+########################################
+Max Year of uc and cd in one table
+###
+
+PREFIX geo: <http://www.geonames.org/ontology#>
+PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+
+    SELECT ?c (MAX(?cdTo) as ?cdLatest) (MAX(?ucTo) as ?ucLatest)
+    WHERE {
+  	 ?c a pa:Country.
+  		
+     ?i a pa:CdStat.
+     ?i geo:country ?c.
+     ?i pa:to ?cdTo.
+ 
+     ?j a pa:UcStat.
+     ?j geo:country ?c.
+     ?j pa:to ?ucTo. 
+  	
+    }
+    GROUP BY ?c
+########################################
+Average of Latest uc and cd in one table
+###
+
+PREFIX geo: <http://www.geonames.org/ontology#>
+PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+SELECT ?c (AVG(?cdR) as ?cdAverage) (AVG(?ucR) as ?ucAverage)
+WHERE {
+ ?i a pa:CdStat.
+ ?i geo:country ?c.
+ ?i pa:to ?cdLatest.
+ ?i pa:rate ?cdR.
+  
+ ?j a pa:UcStat.
+ ?j geo:country ?c.
+ ?j pa:to ?ucLatest.
+ ?j pa:rate ?ucR. 
+    {
+      SELECT ?c (MAX(?cdTo) as ?cdLatest) (MAX(?ucTo) as ?ucLatest)
+      WHERE {
+       ?c a pa:Country.
+
+       ?i a pa:CdStat.
+       ?i geo:country ?c.
+       ?i pa:to ?cdTo.
+
+       ?j a pa:UcStat.
+       ?j geo:country ?c.
+       ?j pa:to ?ucTo. 
+
+      }
+      GROUP BY ?c
+    }
+  }
+GROUP BY ?c
+
+########################################
+Probably final query
+###
+
+PREFIX geo: <http://www.geonames.org/ontology#>
+PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+SELECT ?n ((?countOfFFVenues / ?pop) * 100000 as ?FFVenuesPerPerson) ?sR ((?cdAverage + ?ucAverage) as ?IbdScore)
+WHERE {
+  ?c geo:population ?pop.
+  ?c geo:name ?n.
+  ?s a pa:SuicideStat.
+  ?s geo:country ?c.
+  ?s pa:rate ?sR.
+  {
+    SELECT ?c (count(?s) as ?countOfFFVenues) ?cdAverage ?ucAverage
+    WHERE {
+      ?s a pa:FastFoodVenue.
+      ?s geo:country ?c.
+      {
+        SELECT ?c (AVG(?cdR) as ?cdAverage) (AVG(?ucR) as ?ucAverage)
+        WHERE {
+         ?i a pa:CdStat.
+         ?i geo:country ?c.
+         ?i pa:to ?cdLatest.
+         ?i pa:rate ?cdR.
+
+         ?j a pa:UcStat.
+         ?j geo:country ?c.
+         ?j pa:to ?ucLatest.
+         ?j pa:rate ?ucR. 
+            {
+              SELECT ?c (MAX(?cdTo) as ?cdLatest) (MAX(?ucTo) as ?ucLatest)
+              WHERE {
+               ?c a pa:Country.
+
+               ?i a pa:CdStat.
+               ?i geo:country ?c.
+               ?i pa:to ?cdTo.
+
+               ?j a pa:UcStat.
+               ?j geo:country ?c.
+               ?j pa:to ?ucTo. 
+
+              }
+              GROUP BY ?c
+            }
+          }
+        GROUP BY ?c
+      }
+    }
+    GROUP BY ?c ?cdAverage ?ucAverage
+  }
+}

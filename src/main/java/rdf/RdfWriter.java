@@ -132,7 +132,7 @@ public class RdfWriter extends Object {
 					}.getType());
 			idCounter = 0;
 			for (UcStat ucStat : ucStats) {
-				model.createResource(paPrefix + "CdStat/" + URLEncoder.encode(ucStat.getCountry(), "UTF-8") + idCounter++)
+				model.createResource(paPrefix + "UcStat/" + URLEncoder.encode(ucStat.getCountry(), "UTF-8") + idCounter++)
 						.addProperty(fromProperty,
 								model.createTypedLiteral(ucStat.getStartYear(), new XSDYearType("gYear")))
 						.addProperty(toProperty,
