@@ -1,0 +1,75 @@
+SPARQL-Collection:
+
+########################################
+Count of FF Venues Grouped by Countries:
+###
+
+PREFIX geo: <http://www.geonames.org/ontology#>
+PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+
+SELECT ?c (count(?s) as ?countOfFFVenues)
+WHERE {
+  ?s a pa:FastFoodVenue.
+  ?s geo:country ?c.
+}
+GROUP BY ?c
+
+########################################
+Count of FF Venues Grouped by Countries, + OUTPUT respektive population
+###
+
+PREFIX geo: <http://www.geonames.org/ontology#>
+PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+SELECT ?c ?pop ?countOfFFVenues
+WHERE {
+  ?c geo:population ?pop.
+  {
+    SELECT ?c (count(?s) as ?countOfFFVenues)
+    WHERE {
+      ?s a pa:FastFoodVenue.
+      ?s geo:country ?c.
+    }
+    GROUP BY ?c
+  }
+}
+
+########################################
+FFVenuesPerPerson
+###
+
+PREFIX geo: <http://www.geonames.org/ontology#>
+PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+SELECT ?c ((?countOfFFVenues / ?pop) * 100000 as ?FFVenuesPerPerson)
+WHERE {
+  ?c geo:population ?pop.
+  {
+    SELECT ?c (count(?s) as ?countOfFFVenues)
+    WHERE {
+      ?s a pa:FastFoodVenue.
+      ?s geo:country ?c.
+    }
+    GROUP BY ?c
+  }
+}
+
+########################################
+FFVenuesPerPerson + SuicideRate
+###
+
+PREFIX geo: <http://www.geonames.org/ontology#>
+PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+SELECT ?c ((?countOfFFVenues / ?pop) * 100000 as ?FFVenuesPerPerson) ?r
+WHERE {
+  ?c geo:population ?pop.
+  ?s a pa:SuicideStat.
+  ?s geo:country ?c.
+  ?s pa:rate ?r.
+  {
+    SELECT ?c (count(?s) as ?countOfFFVenues)
+    WHERE {
+      ?s a pa:FastFoodVenue.
+      ?s geo:country ?c.
+    }
+    GROUP BY ?c
+  }
+}
