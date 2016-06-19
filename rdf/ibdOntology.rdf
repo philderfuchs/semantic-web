@@ -2,265 +2,492 @@
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:pa="http://www.imn.htwk-leipzig.de/~panders/schema#"
+    xmlns:pa="http://www.imn.htwk-leipzig.de/~panders/"
     xmlns:geo="http://www.geonames.org/ontology#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
-  <owl:Class rdf:about="http://www.imn.htwk-leipzig.de/~panders/schema#country"/>
+  <owl:Class rdf:about="http://www.imn.htwk-leipzig.de/~panders/Country"/>
+  <owl:Class rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence"/>
   <owl:DatatypeProperty rdf:about="http://www.geonames.org/ontology#population">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/schema#country"/>
+    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/Country"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.imn.htwk-leipzig.de/~panders/rate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.geonames.org/ontology#name">
-    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/schema#country"/>
+    <rdfs:range rdf:resource="http://www.imn.htwk-leipzig.de/~panders/Country"/>
+    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence"/>
+    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/Country"/>
   </owl:DatatypeProperty>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Latvia">
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Hungary">
+    <geo:name>https://en.wikipedia.org/wiki/Hungary</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >25.37065</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Latvia">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >2067900</geo:population>
     <geo:name>Latvia</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Poland">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Poland">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >38625478</geo:population>
     <geo:name>Poland</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Finland">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Finland">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >5157537</geo:population>
     <geo:name>Finland</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Slovakia">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Slovakia">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >5422366</geo:population>
     <geo:name>Slovakia</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Spain">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Spain">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >47059533</geo:population>
     <geo:name>Spain</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Moldova">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >4434547</geo:population>
-    <geo:name>Moldova</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/%28Former+Yugoslav+Republic+of%29+Macedonia">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/%28Former+Yugoslav+Republic+of%29+Macedonia">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >2054800</geo:population>
     <geo:name>(Former Yugoslav Republic of) Macedonia</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Ireland">
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/France">
+    <geo:name>https://en.wikipedia.org/wiki/France</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >15.78652</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Latvia">
+    <geo:name>https://en.wikipedia.org/wiki/Latvia</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >21.78219</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Poland">
+    <geo:name>https://en.wikipedia.org/wiki/Poland</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >20.53808</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Ireland">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >4234925</geo:population>
     <geo:name>Ireland</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Czech+Republic">
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Russia">
+    <geo:name>https://en.wikipedia.org/wiki/Russia</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >22.34911</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Czech+Republic">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >10256760</geo:population>
     <geo:name>Czech Republic</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Croatia">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Croatia">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >4437460</geo:population>
     <geo:name>Croatia</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Vatican+City">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >900</geo:population>
-    <geo:name>Vatican City</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Switzerland">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >7507000</geo:population>
-    <geo:name>Switzerland</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Liechtenstein">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >32842</geo:population>
-    <geo:name>Liechtenstein</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Norway">
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Serbia">
+    <geo:name>https://en.wikipedia.org/wiki/Serbia</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >16.79193</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Norway">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >5018836</geo:population>
     <geo:name>Norway</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/France">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/France">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >66104000</geo:population>
     <geo:name>France</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Malta">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >397499</geo:population>
-    <geo:name>Malta</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Romania">
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Sweden">
+    <geo:name>https://en.wikipedia.org/wiki/Sweden</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >13.19343</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Romania">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >21698181</geo:population>
     <geo:name>Romania</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Luxembourg">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Luxembourg">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >448569</geo:population>
     <geo:name>Luxembourg</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/United+Kingdom">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/United+Kingdom">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >64105654</geo:population>
     <geo:name>United Kingdom</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Turkey">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Turkey">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >77695904</geo:population>
     <geo:name>Turkey</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Estonia">
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Austria">
+    <geo:name>https://en.wikipedia.org/wiki/Austria</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >15.58428</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Iceland">
+    <geo:name>https://en.wikipedia.org/wiki/Iceland</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >15.06979</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Portugal">
+    <geo:name>https://en.wikipedia.org/wiki/Portugal</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >12.48891</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Estonia">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >1340194</geo:population>
     <geo:name>Estonia</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Italy">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >60655464</geo:population>
-    <geo:name>Italy</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Hungary">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >10075034</geo:population>
-    <geo:name>Hungary</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Armenia">
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Ukraine">
+    <geo:name>https://en.wikipedia.org/wiki/Ukraine</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >20.12902</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Armenia">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >3229900</geo:population>
     <geo:name>Armenia</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Georgia">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Georgia">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >4661473</geo:population>
     <geo:name>Georgia</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Netherlands">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Netherlands">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >16902103</geo:population>
     <geo:name>Netherlands</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Cyprus">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >788457</geo:population>
-    <geo:name>Cyprus</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Germany">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >80716000</geo:population>
-    <geo:name>Germany</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Bulgaria">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >7621337</geo:population>
-    <geo:name>Bulgaria</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Sweden">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Sweden">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >9090113</geo:population>
     <geo:name>Sweden</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Portugal">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >10409995</geo:population>
-    <geo:name>Portugal</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Belarus">
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Italy">
+    <geo:name>https://en.wikipedia.org/wiki/Italy</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.41925</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Belarus">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >9458000</geo:population>
     <geo:name>Belarus</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Kazakhstan">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >15217711</geo:population>
-    <geo:name>Kazakhstan</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Bosnia+and+Herzegovina">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >3843126</geo:population>
-    <geo:name>Bosnia and Herzegovina</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/San+Marino">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >27730</geo:population>
-    <geo:name>San Marino</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Serbia">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Serbia">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >7120666</geo:population>
     <geo:name>Serbia</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Greece">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >11123034</geo:population>
-    <geo:name>Greece</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Russia">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Russia">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >143975923</geo:population>
     <geo:name>Russia</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Ukraine">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Ukraine">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >45360000</geo:population>
     <geo:name>Ukraine</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Iceland">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >307261</geo:population>
-    <geo:name>Iceland</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Azerbaijan">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >9165000</geo:population>
-    <geo:name>Azerbaijan</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Austria">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >8169929</geo:population>
-    <geo:name>Austria</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Denmark">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >5564219</geo:population>
-    <geo:name>Denmark</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Montenegro">
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Switzerland">
+    <geo:name>https://en.wikipedia.org/wiki/Switzerland</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >12.15134</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Ireland">
+    <geo:name>https://en.wikipedia.org/wiki/Ireland</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >11.53397</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Montenegro">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >616258</geo:population>
     <geo:name>Montenegro</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Monaco">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Monaco">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >31987</geo:population>
     <geo:name>Monaco</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Belgium">
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Slovakia">
+    <geo:name>https://en.wikipedia.org/wiki/Slovakia</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >12.60674</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/%28Former+Yugoslav+Republic+of%29+Macedonia">
+    <geo:name>https://en.wikipedia.org/wiki/%28Former+Yugoslav+Republic+of%29+Macedonia</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.65291</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Germany">
+    <geo:name>https://en.wikipedia.org/wiki/Germany</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >12.97631</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Montenegro">
+    <geo:name>https://en.wikipedia.org/wiki/Montenegro</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >18.89417</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Czech+Republic">
+    <geo:name>https://en.wikipedia.org/wiki/Czech+Republic</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >15.60314</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Turkey">
+    <geo:name>https://en.wikipedia.org/wiki/Turkey</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >7.97064</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Malta">
+    <geo:name>https://en.wikipedia.org/wiki/Malta</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.79038</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Estonia">
+    <geo:name>https://en.wikipedia.org/wiki/Estonia</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >18.71299</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Croatia">
+    <geo:name>https://en.wikipedia.org/wiki/Croatia</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >16.48266</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Moldova">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4434547</geo:population>
+    <geo:name>Moldova</geo:name>
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Kazakhstan">
+    <geo:name>https://en.wikipedia.org/wiki/Kazakhstan</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >24.24877</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/United+Kingdom">
+    <geo:name>https://en.wikipedia.org/wiki/United+Kingdom</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.9782</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Finland">
+    <geo:name>https://en.wikipedia.org/wiki/Finland</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >16.68945</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Vatican+City">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >900</geo:population>
+    <geo:name>Vatican City</geo:name>
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Switzerland">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >7507000</geo:population>
+    <geo:name>Switzerland</geo:name>
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Liechtenstein">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >32842</geo:population>
+    <geo:name>Liechtenstein</geo:name>
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Denmark">
+    <geo:name>https://en.wikipedia.org/wiki/Denmark</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >11.17013</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Malta">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >397499</geo:population>
+    <geo:name>Malta</geo:name>
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Belgium">
+    <geo:name>https://en.wikipedia.org/wiki/Belgium</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >17.7747</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Albania">
+    <geo:name>https://en.wikipedia.org/wiki/Albania</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.49718</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Italy">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >60655464</geo:population>
+    <geo:name>Italy</geo:name>
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Hungary">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >10075034</geo:population>
+    <geo:name>Hungary</geo:name>
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Luxembourg">
+    <geo:name>https://en.wikipedia.org/wiki/Luxembourg</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >10.89413</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Netherlands">
+    <geo:name>https://en.wikipedia.org/wiki/Netherlands</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >10.03449</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Cyprus">
+    <geo:name>https://en.wikipedia.org/wiki/Cyprus</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >5.14662</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Cyprus">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >788457</geo:population>
+    <geo:name>Cyprus</geo:name>
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Lithuania">
+    <geo:name>https://en.wikipedia.org/wiki/Lithuania</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >33.50274</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Germany">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >80716000</geo:population>
+    <geo:name>Germany</geo:name>
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Georgia">
+    <geo:name>https://en.wikipedia.org/wiki/Georgia</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >3.77681</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Bulgaria">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >7621337</geo:population>
+    <geo:name>Bulgaria</geo:name>
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Romania">
+    <geo:name>https://en.wikipedia.org/wiki/Romania</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >12.78488</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Portugal">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >10409995</geo:population>
+    <geo:name>Portugal</geo:name>
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Slovenia">
+    <geo:name>https://en.wikipedia.org/wiki/Slovenia</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >17.09916</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Belarus">
+    <geo:name>https://en.wikipedia.org/wiki/Belarus</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >21.81038</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Greece">
+    <geo:name>https://en.wikipedia.org/wiki/Greece</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >4.92309</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Kazakhstan">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >15217711</geo:population>
+    <geo:name>Kazakhstan</geo:name>
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Bosnia+and+Herzegovina">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >3843126</geo:population>
+    <geo:name>Bosnia and Herzegovina</geo:name>
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/San+Marino">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >27730</geo:population>
+    <geo:name>San Marino</geo:name>
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Greece">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >11123034</geo:population>
+    <geo:name>Greece</geo:name>
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Iceland">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >307261</geo:population>
+    <geo:name>Iceland</geo:name>
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Azerbaijan">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >9165000</geo:population>
+    <geo:name>Azerbaijan</geo:name>
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Austria">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >8169929</geo:population>
+    <geo:name>Austria</geo:name>
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Denmark">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >5564219</geo:population>
+    <geo:name>Denmark</geo:name>
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Norway">
+    <geo:name>https://en.wikipedia.org/wiki/Norway</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >10.21201</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Bulgaria">
+    <geo:name>https://en.wikipedia.org/wiki/Bulgaria</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >14.48285</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Belgium">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >11007000</geo:population>
     <geo:name>Belgium</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Andorra">
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Spain">
+    <geo:name>https://en.wikipedia.org/wiki/Spain</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >7.0247</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Andorra">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >68403</geo:population>
     <geo:name>Andorra</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Lithuania">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Lithuania">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >2988400</geo:population>
     <geo:name>Lithuania</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Slovenia">
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Bosnia+and+Herzegovina">
+    <geo:name>https://en.wikipedia.org/wiki/Bosnia+and+Herzegovina</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >13.87666</pa:rate>
+  </rdf:Description>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Slovenia">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >2050189</geo:population>
     <geo:name>Slovenia</geo:name>
-  </pa:country>
-  <pa:country rdf:about="https://en.wikipedia.org/wiki/Albania">
+  </pa:Country>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Albania">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >2831741</geo:population>
     <geo:name>Albania</geo:name>
-  </pa:country>
+  </pa:Country>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Armenia">
+    <geo:name>https://en.wikipedia.org/wiki/Armenia</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >3.28902</pa:rate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideIncidence/Azerbaijan">
+    <geo:name>https://en.wikipedia.org/wiki/Azerbaijan</geo:name>
+    <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >1.65955</pa:rate>
+  </rdf:Description>
 </rdf:RDF>

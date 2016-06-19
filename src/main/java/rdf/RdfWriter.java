@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import entities.Country;
+import entities.SuicideRateStudy;
 
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
@@ -40,20 +42,25 @@ public class RdfWriter extends Object {
 
 	String wikiUrl = "https://en.wikipedia.org/wiki/";
 
-	String paPrefix = "http://www.imn.htwk-leipzig.de/~panders/schema#";
+	String paPrefix = "http://www.imn.htwk-leipzig.de/~panders/";
 	String geoPrefix = "http://www.geonames.org/ontology#";
 
 	OntModel model = ModelFactory.createOntologyModel(modelSpec);
-	OntClass countryClass = model.createClass(paPrefix + "country");
+
+	OntClass countryClass = model.createClass(paPrefix + "Country");
 	DatatypeProperty nameProperty = model.createDatatypeProperty(geoPrefix + "name");
 	DatatypeProperty populationProperty = model.createDatatypeProperty(geoPrefix + "population");
+
+	OntClass suicideIncidence = model.createClass(paPrefix + "SuicideIncidence");
+	DatatypeProperty rateProperty = model.createDatatypeProperty(paPrefix + "rate");
+	DatatypeProperty countryProperty = model.createDatatypeProperty(geoPrefix + "name");
 
 	public void write() {
 		this.initializeModel();
 		this.addTriples();
 
 		try {
-			model.write(System.out, rdfStile);
+			// model.write(System.out, rdfStile);
 			model.write(new FileOutputStream("rdf/ibdOntology.rdf"), rdfStile);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -61,13 +68,28 @@ public class RdfWriter extends Object {
 	}
 
 	private void addTriples() {
+		try {
 
-		for (Country country : this.<Country> getListFromJson("countries", new TypeToken<ArrayList<Country>>() {
-		}.getType())) {
-			Resource countryResource = model.createResource(wikiUrl + URLEncoder.encode(country.getName()))
-					.addProperty(nameProperty, country.getName())
-					.addProperty(populationProperty, model.createTypedLiteral(country.getPopulation()))
-					.addProperty(RDF.type, countryClass);
+			for (Country country : this.<Country> getListFromJson("countries", new TypeToken<ArrayList<Country>>() {
+			}.getType())) {
+				model.createResource(wikiUrl + URLEncoder.encode(country.getName(), "UTF-8"))
+						.addProperty(nameProperty, country.getName())
+						.addProperty(populationProperty, model.createTypedLiteral(country.getPopulation()))
+						.addProperty(RDF.type, countryClass);
+			}
+
+			for (SuicideRateStudy suicideIncidence : this.<SuicideRateStudy> getListFromJson("suicideRateStats",
+					new TypeToken<ArrayList<SuicideRateStudy>>() {
+					}.getType())) {
+				model.createResource(
+						paPrefix + "SuicideIncidence/" + URLEncoder.encode(suicideIncidence.getCountry(), "UTF-8"))
+						.addProperty(rateProperty, model.createTypedLiteral(suicideIncidence.getRate())).addProperty(
+								countryProperty, wikiUrl + URLEncoder.encode(suicideIncidence.getCountry(), "UTF-8"));
+
+			}
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}
@@ -77,11 +99,16 @@ public class RdfWriter extends Object {
 		populationProperty.addDomain(countryClass);
 		populationProperty.addRange(XSD.integer);
 
+		rateProperty.addDomain(suicideIncidence);
+		rateProperty.addRange(XSD.xdouble);
+		countryProperty.addDomain(suicideIncidence);
+		countryProperty.addRange(countryClass);
+
 		model.setNsPrefix("pa", paPrefix);
 		model.setNsPrefix("geo", geoPrefix);
 	}
 
-	private static <T> ArrayList<T> getListFromJson(String filename, Type typeToken) {
+	private <T> ArrayList<T> getListFromJson(String filename, Type typeToken) {
 		Gson gson = new Gson();
 
 		StringBuilder jsonString = new StringBuilder();
