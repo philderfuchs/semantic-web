@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import entities.Country;
+import entities.FastFoodVenue;
 import entities.IbdStudy;
 import entities.SuicideRateStudy;
 
@@ -45,6 +46,7 @@ public class RdfWriter extends Object {
 	static String rdfStile = "RDF/XML-ABBREV";
 
 	String wikiUrl = "https://en.wikipedia.org/wiki/";
+	String osmNodeUrl = "https://www.openstreetmap.org/node/";
 
 	String paPrefix = "http://www.imn.htwk-leipzig.de/~panders/";
 	String geoPrefix = "http://www.geonames.org/ontology#";
@@ -52,7 +54,7 @@ public class RdfWriter extends Object {
 	OntModel model = ModelFactory.createOntologyModel(modelSpec);
 
 	OntClass countryClass = model.createClass(paPrefix + "Country");
-	DatatypeProperty nameProperty = model.createDatatypeProperty(geoPrefix + "name");
+	DatatypeProperty geoNameProperty = model.createDatatypeProperty(geoPrefix + "name");
 	DatatypeProperty populationProperty = model.createDatatypeProperty(geoPrefix + "population");
 
 	OntClass suicideStatClass = model.createClass(paPrefix + "SuicideStat");
@@ -63,6 +65,9 @@ public class RdfWriter extends Object {
 	DatatypeProperty ucRateProperty = model.createDatatypeProperty(paPrefix + "ucRate");
 	DatatypeProperty fromProperty = model.createDatatypeProperty(paPrefix + "from");
 	DatatypeProperty toProperty = model.createDatatypeProperty(paPrefix + "to");
+
+	OntClass fastFoodVenueClass = model.createClass(paPrefix + "FastFoodVenue");
+	DatatypeProperty nameProperty = model.createDatatypeProperty(paPrefix + "name");
 
 	DatatypeProperty countryProperty = model.createDatatypeProperty(geoPrefix + "country");
 
@@ -90,7 +95,7 @@ public class RdfWriter extends Object {
 			for (Country country : countries) {
 				countryResourceMap.put(country.getName(),
 						model.createResource(wikiUrl + URLEncoder.encode(country.getName(), "UTF-8"))
-								.addProperty(nameProperty, country.getName())
+								.addProperty(geoNameProperty, country.getName())
 								.addProperty(populationProperty, model.createTypedLiteral(country.getPopulation()))
 								.addProperty(RDF.type, countryClass));
 			}
@@ -121,6 +126,18 @@ public class RdfWriter extends Object {
 						.addProperty(RDF.type, ibdStatClass);
 			}
 
+			ArrayList<FastFoodVenue> fastFoodVenues = this.<FastFoodVenue> getListFromJson("fastFoodVenues",
+					new TypeToken<ArrayList<FastFoodVenue>>() {
+					}.getType());
+			for (FastFoodVenue venue : fastFoodVenues) {
+				Resource r = model.createResource(osmNodeUrl + String.valueOf(venue.getId()))
+						.addProperty(countryProperty, countryResourceMap.get(venue.getCountry()))
+						.addProperty(RDF.type, fastFoodVenueClass);
+				if (!venue.getName().equals("unknown")) {
+					r.addProperty(nameProperty, venue.getName());
+				}
+			}
+
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -130,7 +147,7 @@ public class RdfWriter extends Object {
 
 	private void initializeModel() {
 		// Country
-		nameProperty.addDomain(countryClass);
+		geoNameProperty.addDomain(countryClass);
 		populationProperty.addDomain(countryClass);
 		populationProperty.addRange(XSD.integer);
 
@@ -148,9 +165,13 @@ public class RdfWriter extends Object {
 		toProperty.addDomain(ibdStatClass);
 		toProperty.addRange(XSD.gYear);
 
+		// FastFoodVenue
+		nameProperty.addDomain(fastFoodVenueClass);
+
 		// shared properties
 		countryProperty.addDomain(suicideStatClass);
 		countryProperty.addDomain(ibdStatClass);
+		countryProperty.addDomain(fastFoodVenueClass);
 		countryProperty.addRange(countryClass);
 
 		model.setNsPrefix("pa", paPrefix);
