@@ -73,3 +73,18 @@ WHERE {
     GROUP BY ?c
   }
 }
+
+########################################
+Select only newest Stat
+###
+
+PREFIX geo: <http://www.geonames.org/ontology#>
+PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+SELECT ?c (MAX(?to) as ?latest)
+WHERE {
+ ?i a pa:IbdStat.
+ ?i geo:country ?c.
+ ?i pa:to ?to.
+}
+GROUP BY ?c
+ORDER BY ?to

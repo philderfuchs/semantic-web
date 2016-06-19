@@ -1,6 +1,9 @@
 package extract;
 
+import entities.CdStat;
 import entities.IbdStudy;
+import entities.UcStat;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -21,7 +24,8 @@ public class IbdIncidenceExtractor {
 
 		File file = new File(getClass().getClassLoader().getResource("incidence.csv").getFile());
 		try (Scanner scanner = new Scanner(file)) {
-			ArrayList<IbdStudy> ibdStudies = new ArrayList<>();
+			ArrayList<CdStat> cdStats = new ArrayList<>();
+			ArrayList<UcStat> ucStats = new ArrayList<>();
 
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
@@ -30,9 +34,7 @@ public class IbdIncidenceExtractor {
 				if (cells.length == 5) {
 					String country = CountryMaster.convertToStandardCountryName(cells[0].split("[1-9]")[0]);
 
-					if (country.equals("Country") || country.contains("Europe") || !countrySet.contains(country))
-						continue;
-					if (cells[3].equals("NA") || cells[4].equals("NA"))
+					if (country.equals("Country") || country.contains("Europe") || !countrySet.contains(country) || country.equals("Czech Republic"))
 						continue;
 
 					String startYear, endYear;
@@ -43,18 +45,27 @@ public class IbdIncidenceExtractor {
 						startYear = cells[2].split("–")[0];
 						endYear = cells[2].split("–")[1];
 					}
-					double cdIncidence = Double.parseDouble(cells[3]);
-					double ucIncidence = Double.parseDouble(cells[4]);
-					ibdStudies.add(new IbdStudy(country, startYear, endYear, cdIncidence, ucIncidence));
+					if(!cells[3].equals("NA")) {
+						cdStats.add(new CdStat(country, startYear, endYear, Double.parseDouble(cells[3])));
+					}
+					if(!cells[4].equals("NA")) {
+						ucStats.add(new UcStat(country, startYear, endYear, Double.parseDouble(cells[4])));
+					}
 				}
 			}
 
 			scanner.close();
 
-			Type typeOfSrc = new TypeToken<ArrayList<IbdStudy>>() {
+			Type typeOfSrc = new TypeToken<ArrayList<CdStat>>() {
 			}.getType();
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
-			FileUtils.writeStringToFile(new File("json/ibdIncidenceStats.json"), gson.toJson(ibdStudies, typeOfSrc));
+			FileUtils.writeStringToFile(new File("json/cdStats.json"), gson.toJson(cdStats, typeOfSrc));
+			
+			typeOfSrc = new TypeToken<ArrayList<UcStat>>() {
+			}.getType();
+			gson = new GsonBuilder().setPrettyPrinting().create();
+			FileUtils.writeStringToFile(new File("json/ucStats.json"), gson.toJson(ucStats, typeOfSrc));
+
 
 		} catch (IOException e) {
 			e.printStackTrace();

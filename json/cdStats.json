@@ -1,0 +1,254 @@
+[
+  {
+    "country": "Estonia",
+    "startYear": "1993",
+    "endYear": "1998",
+    "rate": 1.4
+  },
+  {
+    "country": "Hungary",
+    "startYear": "2002",
+    "endYear": "2006",
+    "rate": 8.9
+  },
+  {
+    "country": "Romania",
+    "startYear": "2002",
+    "endYear": "2003",
+    "rate": 0.5
+  },
+  {
+    "country": "Belgium",
+    "startYear": "1993",
+    "endYear": "1996",
+    "rate": 4.5
+  },
+  {
+    "country": "Croatia",
+    "startYear": "2000",
+    "endYear": "2004",
+    "rate": 6.5
+  },
+  {
+    "country": "Croatia",
+    "startYear": "1980",
+    "endYear": "1989",
+    "rate": 0.7
+  },
+  {
+    "country": "France",
+    "startYear": "2006",
+    "endYear": "2007",
+    "rate": 6.7
+  },
+  {
+    "country": "Germany",
+    "startYear": "2004",
+    "endYear": "2006",
+    "rate": 6.6
+  },
+  {
+    "country": "Greece",
+    "startYear": "1983",
+    "endYear": "2005",
+    "rate": 2.7
+  },
+  {
+    "country": "Italy",
+    "startYear": "1990",
+    "endYear": "1992",
+    "rate": 3.4
+  },
+  {
+    "country": "Italy",
+    "startYear": "1989",
+    "endYear": "1992",
+    "rate": 2.3
+  },
+  {
+    "country": "Netherlands",
+    "startYear": "1991",
+    "endYear": "2003",
+    "rate": 6.2
+  },
+  {
+    "country": "Spain",
+    "startYear": "2001",
+    "endYear": "2003",
+    "rate": 5.9
+  },
+  {
+    "country": "Spain",
+    "startYear": "2000",
+    "endYear": "2002",
+    "rate": 7.5
+  },
+  {
+    "country": "Spain",
+    "startYear": "2003",
+    "endYear": "2005",
+    "rate": 7.3
+  },
+  {
+    "country": "Denmark",
+    "startYear": "1962",
+    "endYear": "1987",
+    "rate": 4.1
+  },
+  {
+    "country": "Denmark",
+    "startYear": "2003",
+    "endYear": "2005",
+    "rate": 8.6
+  },
+  {
+    "country": "Denmark",
+    "startYear": "1978",
+    "endYear": "2002",
+    "rate": 6.7
+  },
+  {
+    "country": "Finland",
+    "startYear": "1986",
+    "endYear": "1999",
+    "rate": 7.2
+  },
+  {
+    "country": "Iceland",
+    "startYear": "1990",
+    "endYear": "1994",
+    "rate": 5.5
+  },
+  {
+    "country": "Norway",
+    "startYear": "1990",
+    "endYear": "1993",
+    "rate": 5.8
+  },
+  {
+    "country": "Sweden",
+    "startYear": "1990",
+    "endYear": "2001",
+    "rate": 8.3
+  },
+  {
+    "country": "Sweden",
+    "startYear": "1963",
+    "endYear": "1987",
+    "rate": 6.1
+  },
+  {
+    "country": "United Kingdom",
+    "startYear": "1991",
+    "endYear": "1992",
+    "rate": 10.6
+  },
+  {
+    "country": "United Kingdom",
+    "startYear": "1990",
+    "endYear": "1994",
+    "rate": 8.3
+  },
+  {
+    "country": "United Kingdom",
+    "startYear": "1996",
+    "endYear": "2005",
+    "rate": 6.6
+  },
+  {
+    "country": "Iceland",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 8.2
+  },
+  {
+    "country": "Norway",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 6.9
+  },
+  {
+    "country": "Denmark",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 6.6
+  },
+  {
+    "country": "Ireland",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 5.9
+  },
+  {
+    "country": "Netherlands",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 7.7
+  },
+  {
+    "country": "Germany",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 3.5
+  },
+  {
+    "country": "France",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 8.1
+  },
+  {
+    "country": "Italy",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 3.2
+  },
+  {
+    "country": "Italy",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 2.7
+  },
+  {
+    "country": "Italy",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 4.0
+  },
+  {
+    "country": "Italy",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 2.7
+  },
+  {
+    "country": "Spain",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 4.8
+  },
+  {
+    "country": "Spain",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 4.9
+  },
+  {
+    "country": "Portugal",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 3.7
+  },
+  {
+    "country": "Portugal",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 2.3
+  },
+  {
+    "country": "Greece",
+    "startYear": "1991",
+    "endYear": "1993",
+    "rate": 1.0
+  }
+]
