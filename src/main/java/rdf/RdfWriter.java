@@ -22,11 +22,13 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import entities.Country;
+import entities.IbdStudy;
 import entities.SuicideRateStudy;
 
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
-
+import org.apache.jena.datatypes.xsd.XSDDatatype;
+import org.apache.jena.datatypes.xsd.impl.XSDYearType;
 import org.apache.jena.ontology.DatatypeProperty;
 import org.apache.jena.ontology.ObjectProperty;
 import org.apache.jena.ontology.OntClass;
@@ -55,6 +57,13 @@ public class RdfWriter extends Object {
 
 	OntClass suicideStatClass = model.createClass(paPrefix + "SuicideStat");
 	DatatypeProperty rateProperty = model.createDatatypeProperty(paPrefix + "rate");
+
+	OntClass ibdStatClass = model.createClass(paPrefix + "IbdStat");
+	DatatypeProperty cdRateProperty = model.createDatatypeProperty(paPrefix + "cdRate");
+	DatatypeProperty ucRateProperty = model.createDatatypeProperty(paPrefix + "ucRate");
+	DatatypeProperty fromProperty = model.createDatatypeProperty(paPrefix + "from");
+	DatatypeProperty toProperty = model.createDatatypeProperty(paPrefix + "to");
+
 	DatatypeProperty countryProperty = model.createDatatypeProperty(geoPrefix + "country");
 
 	public void write() {
@@ -96,6 +105,22 @@ public class RdfWriter extends Object {
 						.addProperty(RDF.type, suicideStatClass);
 			}
 
+			ArrayList<IbdStudy> ibdStats = this.<IbdStudy> getListFromJson("ibdIncidenceStats",
+					new TypeToken<ArrayList<IbdStudy>>() {
+					}.getType());
+			for (IbdStudy ibdStat : ibdStats) {
+				model.createResource(paPrefix + "IbdStat/" + URLEncoder.encode(ibdStat.getCountry(), "UTF-8") + "_"
+						+ ibdStat.getStartYear() + "-" + ibdStat.getEndYear())
+						.addProperty(fromProperty,
+								model.createTypedLiteral(ibdStat.getStartYear(), new XSDYearType("gYear")))
+						.addProperty(toProperty,
+								model.createTypedLiteral(ibdStat.getEndYear(), new XSDYearType("gYear")))
+						.addProperty(cdRateProperty, model.createTypedLiteral(ibdStat.getCdIncidence()))
+						.addProperty(ucRateProperty, model.createTypedLiteral(ibdStat.getUcIncidence()))
+						.addProperty(countryProperty, countryResourceMap.get(ibdStat.getCountry()))
+						.addProperty(RDF.type, ibdStatClass);
+			}
+
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -104,13 +129,28 @@ public class RdfWriter extends Object {
 	}
 
 	private void initializeModel() {
+		// Country
 		nameProperty.addDomain(countryClass);
 		populationProperty.addDomain(countryClass);
 		populationProperty.addRange(XSD.integer);
 
+		// Suicide stat
 		rateProperty.addDomain(suicideStatClass);
 		rateProperty.addRange(XSD.xdouble);
+
+		// Ibd Stat
+		cdRateProperty.addDomain(ibdStatClass);
+		cdRateProperty.addRange(XSD.xdouble);
+		ucRateProperty.addDomain(ibdStatClass);
+		ucRateProperty.addRange(XSD.xdouble);
+		fromProperty.addDomain(ibdStatClass);
+		fromProperty.addRange(XSD.gYear);
+		toProperty.addDomain(ibdStatClass);
+		toProperty.addRange(XSD.gYear);
+
+		// shared properties
 		countryProperty.addDomain(suicideStatClass);
+		countryProperty.addDomain(ibdStatClass);
 		countryProperty.addRange(countryClass);
 
 		model.setNsPrefix("pa", paPrefix);

@@ -7,6 +7,11 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
   <owl:Class rdf:about="http://www.imn.htwk-leipzig.de/~panders/Country"/>
   <owl:Class rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat"/>
+  <owl:Class rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat"/>
+  <owl:DatatypeProperty rdf:about="http://www.imn.htwk-leipzig.de/~panders/cdRate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/IbdStat"/>
+  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.geonames.org/ontology#population">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/Country"/>
@@ -18,10 +23,40 @@
   <owl:DatatypeProperty rdf:about="http://www.geonames.org/ontology#name">
     <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/Country"/>
   </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.imn.htwk-leipzig.de/~panders/from">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/IbdStat"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.imn.htwk-leipzig.de/~panders/ucRate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/IbdStat"/>
+  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.geonames.org/ontology#country">
     <rdfs:range rdf:resource="http://www.imn.htwk-leipzig.de/~panders/Country"/>
+    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/IbdStat"/>
     <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/SuicideStat"/>
   </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.imn.htwk-leipzig.de/~panders/to">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+    <rdfs:domain rdf:resource="http://www.imn.htwk-leipzig.de/~panders/IbdStat"/>
+  </owl:DatatypeProperty>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Denmark_1978-2002">
+    <geo:country>
+      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Denmark">
+        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >5564219</geo:population>
+        <geo:name>Denmark</geo:name>
+      </pa:Country>
+    </geo:country>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >12.2</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.7</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2002</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1978</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Sweden">
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Sweden">
@@ -55,6 +90,141 @@
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >18.89417</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Italy_1991-1993">
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >3.2</pa:cdRate>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >8.1</pa:ucRate>
+    <geo:country>
+      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Italy">
+        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >60655464</geo:population>
+        <geo:name>Italy</geo:name>
+      </pa:Country>
+    </geo:country>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >10.0</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >4.0</pa:cdRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >2.7</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >7.5</pa:ucRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Croatia_1980-1989">
+    <geo:country>
+      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Croatia">
+        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >4437460</geo:population>
+        <geo:name>Croatia</geo:name>
+      </pa:Country>
+    </geo:country>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >1.5</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >0.7</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1989</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1980</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/France_2006-2007">
+    <geo:country>
+      <pa:Country rdf:about="https://en.wikipedia.org/wiki/France">
+        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >66104000</geo:population>
+        <geo:name>France</geo:name>
+      </pa:Country>
+    </geo:country>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >3.4</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.7</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2007</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2006</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Spain_1991-1993">
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >7.0</pa:ucRate>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >9.0</pa:ucRate>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+    <geo:country>
+      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Spain">
+        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >47059533</geo:population>
+        <geo:name>Spain</geo:name>
+      </pa:Country>
+    </geo:country>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >4.8</pa:cdRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >4.9</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Spain_2000-2002">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Spain"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >9.1</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >7.5</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2002</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2000</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Denmark_2003-2005">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Denmark"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >13.4</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >8.6</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2005</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2003</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Netherlands_1991-1993">
+    <geo:country>
+      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Netherlands">
+        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >16902103</geo:population>
+        <geo:name>Netherlands</geo:name>
+      </pa:Country>
+    </geo:country>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >13.1</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >7.7</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Armenia">
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Armenia">
@@ -100,13 +270,7 @@
     >15.60314</pa:rate>
   </pa:SuicideStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Italy">
-    <geo:country>
-      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Italy">
-        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >60655464</geo:population>
-        <geo:name>Italy</geo:name>
-      </pa:Country>
-    </geo:country>
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Italy"/>
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >6.41925</pa:rate>
   </pa:SuicideStat>
@@ -154,6 +318,51 @@
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >12.78488</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Greece_1991-1993">
+    <geo:country>
+      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Greece">
+        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >11123034</geo:population>
+        <geo:name>Greece</geo:name>
+      </pa:Country>
+    </geo:country>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >8.5</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >1.0</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Croatia_2000-2004">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Croatia"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >4.6</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.5</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2004</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2000</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Germany_2004-2006">
+    <geo:country>
+      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Germany">
+        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >80716000</geo:population>
+        <geo:name>Germany</geo:name>
+      </pa:Country>
+    </geo:country>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >3.9</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.6</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2006</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2004</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Azerbaijan">
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Azerbaijan">
@@ -177,13 +386,7 @@
     >16.68945</pa:rate>
   </pa:SuicideStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Spain">
-    <geo:country>
-      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Spain">
-        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >47059533</geo:population>
-        <geo:name>Spain</geo:name>
-      </pa:Country>
-    </geo:country>
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Spain"/>
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >7.0247</pa:rate>
   </pa:SuicideStat>
@@ -198,6 +401,17 @@
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >33.50274</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Norway_1990-1993">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Norway"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >13.6</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >5.8</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1990</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Slovakia">
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Slovakia">
@@ -209,6 +423,34 @@
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >12.60674</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Iceland_1990-1994">
+    <geo:country>
+      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Iceland">
+        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >307261</geo:population>
+        <geo:name>Iceland</geo:name>
+      </pa:Country>
+    </geo:country>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >16.5</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >5.5</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1994</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1990</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Finland_1986-1999">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Finland"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >16.5</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >7.2</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1999</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1986</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Bosnia+and+Herzegovina">
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Bosnia+and+Herzegovina">
@@ -242,6 +484,23 @@
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >5.14662</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Estonia_1993-1998">
+    <geo:country>
+      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Estonia">
+        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1340194</geo:population>
+        <geo:name>Estonia</geo:name>
+      </pa:Country>
+    </geo:country>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >1.7</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >1.4</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1998</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Ukraine">
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Ukraine">
@@ -254,13 +513,7 @@
     >20.12902</pa:rate>
   </pa:SuicideStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/France">
-    <geo:country>
-      <pa:Country rdf:about="https://en.wikipedia.org/wiki/France">
-        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >66104000</geo:population>
-        <geo:name>France</geo:name>
-      </pa:Country>
-    </geo:country>
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/France"/>
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >15.78652</pa:rate>
   </pa:SuicideStat>
@@ -291,6 +544,17 @@
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >20.53808</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Norway_1991-1993">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Norway"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >15.6</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.9</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Luxembourg">
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Luxembourg">
@@ -314,27 +578,37 @@
     >3.77681</pa:rate>
   </pa:SuicideStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Greece">
-    <geo:country>
-      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Greece">
-        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >11123034</geo:population>
-        <geo:name>Greece</geo:name>
-      </pa:Country>
-    </geo:country>
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Greece"/>
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >4.92309</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Spain_2001-2003">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Spain"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >9.6</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >5.9</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2003</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2001</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Germany">
-    <geo:country>
-      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Germany">
-        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >80716000</geo:population>
-        <geo:name>Germany</geo:name>
-      </pa:Country>
-    </geo:country>
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Germany"/>
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >12.97631</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Italy_1990-1992">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Italy"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >9.6</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >3.4</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1992</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1990</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Belarus">
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Belarus">
@@ -351,12 +625,19 @@
     >4434547</geo:population>
     <geo:name>Moldova</geo:name>
   </pa:Country>
-  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Vatican+City">
-    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-    >900</geo:population>
-    <geo:name>Vatican City</geo:name>
-  </pa:Country>
-  <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Portugal">
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Portugal_1991-1993">
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >5.5</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >2.3</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >1.7</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >3.7</pa:cdRate>
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Portugal">
         <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
@@ -364,6 +645,40 @@
         <geo:name>Portugal</geo:name>
       </pa:Country>
     </geo:country>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Greece_1983-2005">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Greece"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >0.9</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >2.7</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2005</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1983</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Romania_2002-2003">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Romania"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >0.97</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >0.5</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2003</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2002</pa:from>
+  </pa:IbdStat>
+  <pa:Country rdf:about="https://en.wikipedia.org/wiki/Vatican+City">
+    <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >900</geo:population>
+    <geo:name>Vatican City</geo:name>
+  </pa:Country>
+  <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Portugal">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Portugal"/>
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >12.48891</pa:rate>
   </pa:SuicideStat>
@@ -373,24 +688,56 @@
     <geo:name>Liechtenstein</geo:name>
   </pa:Country>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Croatia">
-    <geo:country>
-      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Croatia">
-        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >4437460</geo:population>
-        <geo:name>Croatia</geo:name>
-      </pa:Country>
-    </geo:country>
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Croatia"/>
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >16.48266</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Sweden_1963-1987">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Sweden"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >13.1</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.1</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1987</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1963</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Denmark_1962-1987">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Denmark"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >8.1</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >4.1</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1987</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1962</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Ireland_1991-1993">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Ireland"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >14.8</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >5.9</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Iceland_1991-1993">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Iceland"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >24.3</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >8.2</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Estonia">
-    <geo:country>
-      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Estonia">
-        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >1340194</geo:population>
-        <geo:name>Estonia</geo:name>
-      </pa:Country>
-    </geo:country>
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Estonia"/>
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >18.71299</pa:rate>
   </pa:SuicideStat>
@@ -416,30 +763,51 @@
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >6.9782</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Denmark_1991-1993">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Denmark"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >10.0</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.6</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Netherlands_1991-2003">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Netherlands"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >7.7</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >6.2</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2003</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Denmark">
-    <geo:country>
-      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Denmark">
-        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >5564219</geo:population>
-        <geo:name>Denmark</geo:name>
-      </pa:Country>
-    </geo:country>
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Denmark"/>
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >11.17013</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Germany_1991-1993">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Germany"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >4.3</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >3.5</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+  </pa:IbdStat>
   <pa:Country rdf:about="https://en.wikipedia.org/wiki/San+Marino">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >27730</geo:population>
     <geo:name>San Marino</geo:name>
   </pa:Country>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Netherlands">
-    <geo:country>
-      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Netherlands">
-        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >16902103</geo:population>
-        <geo:name>Netherlands</geo:name>
-      </pa:Country>
-    </geo:country>
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Netherlands"/>
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >10.03449</pa:rate>
   </pa:SuicideStat>
@@ -487,6 +855,17 @@
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >6.49718</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/France_1991-1993">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/France"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >5.6</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >8.1</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1991</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Austria">
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Austria">
@@ -499,21 +878,48 @@
     >15.58428</pa:rate>
   </pa:SuicideStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Iceland">
-    <geo:country>
-      <pa:Country rdf:about="https://en.wikipedia.org/wiki/Iceland">
-        <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
-        >307261</geo:population>
-        <geo:name>Iceland</geo:name>
-      </pa:Country>
-    </geo:country>
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Iceland"/>
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >15.06979</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/United+Kingdom_1990-1994">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/United+Kingdom"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >13.9</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >8.3</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1994</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1990</pa:from>
+  </pa:IbdStat>
   <pa:Country rdf:about="https://en.wikipedia.org/wiki/Andorra">
     <geo:population rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
     >68403</geo:population>
     <geo:name>Andorra</geo:name>
   </pa:Country>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Spain_2003-2005">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Spain"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >7.1</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >7.3</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2005</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2003</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Italy_1989-1992">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Italy"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >5.2</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >2.3</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1992</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1989</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Bulgaria">
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Bulgaria">
@@ -525,6 +931,28 @@
     <pa:rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >14.48285</pa:rate>
   </pa:SuicideStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Belgium_1993-1996">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Belgium"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >3.6</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >4.5</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1996</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >1993</pa:from>
+  </pa:IbdStat>
+  <pa:IbdStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/IbdStat/Hungary_2002-2006">
+    <geo:country rdf:resource="https://en.wikipedia.org/wiki/Hungary"/>
+    <pa:ucRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >11.9</pa:ucRate>
+    <pa:cdRate rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >8.9</pa:cdRate>
+    <pa:to rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2006</pa:to>
+    <pa:from rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+    >2002</pa:from>
+  </pa:IbdStat>
   <pa:SuicideStat rdf:about="http://www.imn.htwk-leipzig.de/~panders/SuicideStat/Slovenia">
     <geo:country>
       <pa:Country rdf:about="https://en.wikipedia.org/wiki/Slovenia">
