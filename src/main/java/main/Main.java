@@ -10,8 +10,8 @@ import rdf.RdfWriter;
 public class Main {
 
 	public static void main(String[] args) {
-		RdfWriter writer = new RdfWriter();
-		writer.write();
+//		RdfWriter writer = new RdfWriter();
+//		writer.write();
 		
 //		CountryExtractor countryExtractor = new CountryExtractor();
 //		try {
@@ -21,8 +21,8 @@ public class Main {
 //			e.printStackTrace();
 //		}
 //		
-//		CountryMaster master = new CountryMaster();
-//		Set<String> countrySet = master.createCountrySet();
+		CountryMaster master = new CountryMaster();
+		Set<String> countrySet = master.createCountrySet();
 //		
 //		FastFoodVenueExtractor fastFoodExtractor = new FastFoodVenueExtractor();
 //		try {
@@ -34,13 +34,13 @@ public class Main {
 
 //		IbdIncidenceExtractor ibdIncidenceExtractor = new IbdIncidenceExtractor();
 //		ibdIncidenceExtractor.extract(countrySet);
-//		SuicideRateExtractor suicideRateExtractor = new SuicideRateExtractor();
-//		try {
-//			suicideRateExtractor.extract(countrySet);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		SuicideRateExtractor suicideRateExtractor = new SuicideRateExtractor();
+		try {
+			suicideRateExtractor.extract(countrySet);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 				
 
 	}

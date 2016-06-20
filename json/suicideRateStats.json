@@ -1,178 +1,178 @@
 [
   {
-    "country": "Slovenia",
-    "rate": 17.09916
-  },
-  {
-    "country": "Sweden",
-    "rate": 13.19343
-  },
-  {
-    "country": "Poland",
-    "rate": 20.53808
-  },
-  {
-    "country": "Malta",
-    "rate": 6.79038
-  },
-  {
-    "country": "(Former Yugoslav Republic of) Macedonia",
-    "rate": 6.65291
-  },
-  {
-    "country": "Denmark",
-    "rate": 11.17013
-  },
-  {
-    "country": "Albania",
-    "rate": 6.49718
-  },
-  {
-    "country": "Turkey",
-    "rate": 7.97064
-  },
-  {
-    "country": "Serbia",
-    "rate": 16.79193
-  },
-  {
-    "country": "Russia",
-    "rate": 22.34911
-  },
-  {
-    "country": "Romania",
-    "rate": 12.78488
-  },
-  {
-    "country": "Netherlands",
-    "rate": 10.03449
-  },
-  {
-    "country": "Iceland",
-    "rate": 15.06979
-  },
-  {
-    "country": "Greece",
-    "rate": 4.92309
-  },
-  {
-    "country": "Georgia",
-    "rate": 3.77681
-  },
-  {
-    "country": "Bosnia and Herzegovina",
-    "rate": 13.87666
+    "country": "Belgium",
+    "rate": 14.2
   },
   {
     "country": "Bulgaria",
-    "rate": 14.48285
+    "rate": 10.8
   },
   {
-    "country": "Austria",
-    "rate": 15.58428
-  },
-  {
-    "country": "Ukraine",
-    "rate": 20.12902
-  },
-  {
-    "country": "France",
-    "rate": 15.78652
-  },
-  {
-    "country": "Armenia",
-    "rate": 3.28902
-  },
-  {
-    "country": "Slovakia",
-    "rate": 12.60674
-  },
-  {
-    "country": "Portugal",
-    "rate": 12.48891
-  },
-  {
-    "country": "Latvia",
-    "rate": 21.78219
-  },
-  {
-    "country": "Luxembourg",
-    "rate": 10.89413
-  },
-  {
-    "country": "Lithuania",
-    "rate": 33.50274
-  },
-  {
-    "country": "Italy",
-    "rate": 6.41925
-  },
-  {
-    "country": "Hungary",
-    "rate": 25.37065
-  },
-  {
-    "country": "Finland",
-    "rate": 16.68945
-  },
-  {
-    "country": "Switzerland",
-    "rate": 12.15134
-  },
-  {
-    "country": "Belgium",
-    "rate": 17.7747
-  },
-  {
-    "country": "Norway",
-    "rate": 10.21201
-  },
-  {
-    "country": "Montenegro",
-    "rate": 18.89417
-  },
-  {
-    "country": "Kazakhstan",
-    "rate": 24.24877
-  },
-  {
-    "country": "Croatia",
-    "rate": 16.48266
-  },
-  {
-    "country": "United Kingdom",
-    "rate": 6.9782
-  },
-  {
-    "country": "Spain",
-    "rate": 7.0247
-  },
-  {
-    "country": "Czech Republic",
-    "rate": 15.60314
-  },
-  {
-    "country": "Cyprus",
-    "rate": 5.14662
-  },
-  {
-    "country": "Ireland",
-    "rate": 11.53397
-  },
-  {
-    "country": "Estonia",
-    "rate": 18.71299
-  },
-  {
-    "country": "Germany",
-    "rate": 12.97631
+    "country": "Bosnia and Herzegovina",
+    "rate": 10.8
   },
   {
     "country": "Belarus",
-    "rate": 21.81038
+    "rate": 18.3
+  },
+  {
+    "country": "Armenia",
+    "rate": 2.9
+  },
+  {
+    "country": "Austria",
+    "rate": 11.5
   },
   {
     "country": "Azerbaijan",
-    "rate": 1.65955
+    "rate": 1.7
+  },
+  {
+    "country": "Albania",
+    "rate": 5.9
+  },
+  {
+    "country": "Switzerland",
+    "rate": 9.2
+  },
+  {
+    "country": "Cyprus",
+    "rate": 4.7
+  },
+  {
+    "country": "Czech Republic",
+    "rate": 12.5
+  },
+  {
+    "country": "Germany",
+    "rate": 9.2
+  },
+  {
+    "country": "Denmark",
+    "rate": 8.8
+  },
+  {
+    "country": "Spain",
+    "rate": 5.1
+  },
+  {
+    "country": "Estonia",
+    "rate": 13.6
+  },
+  {
+    "country": "Finland",
+    "rate": 14.8
+  },
+  {
+    "country": "France",
+    "rate": 12.3
+  },
+  {
+    "country": "United Kingdom",
+    "rate": 6.2
+  },
+  {
+    "country": "Georgia",
+    "rate": 3.2
+  },
+  {
+    "country": "Greece",
+    "rate": 3.8
+  },
+  {
+    "country": "Croatia",
+    "rate": 11.6
+  },
+  {
+    "country": "Hungary",
+    "rate": 19.1
+  },
+  {
+    "country": "Ireland",
+    "rate": 11.0
+  },
+  {
+    "country": "Iceland",
+    "rate": 14.0
+  },
+  {
+    "country": "Italy",
+    "rate": 4.7
+  },
+  {
+    "country": "Kazakhstan",
+    "rate": 23.8
+  },
+  {
+    "country": "Lithuania",
+    "rate": 28.2
+  },
+  {
+    "country": "Luxembourg",
+    "rate": 8.7
+  },
+  {
+    "country": "Latvia",
+    "rate": 16.2
+  },
+  {
+    "country": "(Former Yugoslav Republic of) Macedonia",
+    "rate": 5.2
+  },
+  {
+    "country": "Malta",
+    "rate": 6.0
+  },
+  {
+    "country": "Montenegro",
+    "rate": 15.3
+  },
+  {
+    "country": "Netherlands",
+    "rate": 8.2
+  },
+  {
+    "country": "Norway",
+    "rate": 9.1
+  },
+  {
+    "country": "Poland",
+    "rate": 16.6
+  },
+  {
+    "country": "Portugal",
+    "rate": 8.2
+  },
+  {
+    "country": "Romania",
+    "rate": 10.5
+  },
+  {
+    "country": "Russia",
+    "rate": 19.5
+  },
+  {
+    "country": "Serbia",
+    "rate": 12.4
+  },
+  {
+    "country": "Slovakia",
+    "rate": 10.1
+  },
+  {
+    "country": "Slovenia",
+    "rate": 12.4
+  },
+  {
+    "country": "Sweden",
+    "rate": 11.1
+  },
+  {
+    "country": "Turkey",
+    "rate": 7.9
+  },
+  {
+    "country": "Ukraine",
+    "rate": 16.8
   }
 ]

@@ -41,7 +41,7 @@ public class SuicideRateExtractor {
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		// Document doc = dBuilder
 		// .parse("http://apps.who.int/gho/athena/api/GHO/SDGSUICIDE?filter=REGION:EUR&profile=simple");
-		Document doc = dBuilder.parse("http://apps.who.int/gho/athena/api/GHO/SDGSUICIDE?profile=simple");
+		Document doc = dBuilder.parse("http://apps.who.int/gho/athena/api/GHO/MH_12?profile=simple");
 		doc.getDocumentElement().normalize();
 		NodeList nList = doc.getElementsByTagName("Fact");
 
@@ -51,7 +51,8 @@ public class SuicideRateExtractor {
 				Element eElement = (Element) nNode;
 				String currentCountryName = CountryMaster.convertToStandardCountryName(
 						eElement.getElementsByTagName("COUNTRY").item(0).getTextContent());
-				if (countrySet.contains(currentCountryName)) {
+				String sex = eElement.getElementsByTagName("SEX").item(0).getTextContent();
+				if (countrySet.contains(currentCountryName) && sex.equals("Both sexes")) {
 					suicideRateStudies.add(new SuicideRateStudy(currentCountryName,
 							Double.parseDouble(eElement.getElementsByTagName("Numeric").item(0).getTextContent())));
 				}
