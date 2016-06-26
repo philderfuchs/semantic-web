@@ -10,8 +10,10 @@ import rdf.RdfWriter;
 public class Main {
 
 	public static void main(String[] args) {
-		RdfWriter writer = new RdfWriter();
-		writer.write();
+//		RdfWriter writer = new RdfWriter();
+//		writer.write();
+		
+		new WeatherExtractor().extract();
 		
 //		CountryExtractor countryExtractor = new CountryExtractor();
 //		try {
