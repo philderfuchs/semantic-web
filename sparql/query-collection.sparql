@@ -178,7 +178,7 @@ Probably final query
 
 PREFIX geo: <http://www.geonames.org/ontology#>
 PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
-SELECT ?n ((?countOfFFVenues / ?pop) * 100000 as ?FFVenuesPerPerson) ?sR ((?cdAverage + ?ucAverage) as ?IbdScore)
+SELECT ?n ((?countOfFFVenues / ?pop) * 100000 as ?FastFoodDensity) (?sR as ?SuicideRate) ((?cdAverage + ?ucAverage) as ?IbdRate)
 WHERE {
   ?c geo:population ?pop.
   ?c geo:name ?n.
@@ -225,3 +225,20 @@ WHERE {
     GROUP BY ?c ?cdAverage ?ucAverage
   }
 }
+ORDER BY DESC(?IbdRate)
+
+####################################
+Count specific types of ffvenue
+##########
+
+PREFIX geo: <http://www.geonames.org/ontology#>
+PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?c (COUNT(?s) AS ?count)
+WHERE {
+  ?s pa:name "Kentucky Fried Chicken".
+  ?s a pa:FastFoodVenue.
+  ?s geo:country ?c.
+}
+GROUP BY ?c
+ORDER BY ?count

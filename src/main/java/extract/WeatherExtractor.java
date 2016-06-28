@@ -15,7 +15,7 @@ public class WeatherExtractor {
 		
 		Document doc;
 		try {
-			doc = Jsoup.connect("http://www.wetter.de/klima/europa/deutschland-c49.html").get();
+			doc = Jsoup.connect("http://www.wetter.de/klima/europa/daenemark-c45.html").get();
 			Elements wrappers = doc.getElementsByClass("wrapper-climate-data");
 			Elements tbodies = wrappers.get(2).getElementsByTag("tbody");
 			

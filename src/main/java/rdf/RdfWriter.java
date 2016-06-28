@@ -52,11 +52,13 @@ public class RdfWriter extends Object {
 
 	String paPrefix = "http://www.imn.htwk-leipzig.de/~panders/";
 	String geoPrefix = "http://www.geonames.org/ontology#";
+	String dboPrefix = "http://dbpedia.org/ontology/";
+	String timePrefix = "http://www.w3.org/2006/time/";
 
 	OntModel model = ModelFactory.createOntologyModel(modelSpec);
 
-	OntClass countryClass = model.createClass(paPrefix + "Country");
-	DatatypeProperty geoNameProperty = model.createDatatypeProperty(geoPrefix + "name");
+	OntClass countryClass = model.createClass(dboPrefix + "Country");
+	DatatypeProperty geoNameProperty = model.createDatatypeProperty(geoPrefix + "officialName");
 	DatatypeProperty populationProperty = model.createDatatypeProperty(geoPrefix + "population");
 
 	OntClass suicideStatClass = model.createClass(paPrefix + "SuicideStat");
@@ -65,13 +67,13 @@ public class RdfWriter extends Object {
 	OntClass ibdStatClass = model.createClass(paPrefix + "IbdStat");
 	OntClass cdStatClass = model.createClass(paPrefix + "CdStat");
 	OntClass ucStatClass = model.createClass(paPrefix + "UcStat");
-	DatatypeProperty fromProperty = model.createDatatypeProperty(paPrefix + "from");
-	DatatypeProperty toProperty = model.createDatatypeProperty(paPrefix + "to");
+	DatatypeProperty fromProperty = model.createDatatypeProperty(timePrefix + "hasBeginning");
+	DatatypeProperty toProperty = model.createDatatypeProperty(timePrefix + "hasEnd");
 
 	OntClass fastFoodVenueClass = model.createClass(paPrefix + "FastFoodVenue");
 	DatatypeProperty nameProperty = model.createDatatypeProperty(paPrefix + "name");
 
-	DatatypeProperty countryProperty = model.createDatatypeProperty(geoPrefix + "country");
+	DatatypeProperty countryProperty = model.createDatatypeProperty(dboPrefix + "country");
 
 	public void write() {
 		this.initializeModel();
@@ -190,6 +192,8 @@ public class RdfWriter extends Object {
 
 		model.setNsPrefix("pa", paPrefix);
 		model.setNsPrefix("geo", geoPrefix);
+		model.setNsPrefix("dbo", dboPrefix);
+		model.setNsPrefix("time", timePrefix);
 	}
 
 	private <T> ArrayList<T> getListFromJson(String filename, Type typeToken) {

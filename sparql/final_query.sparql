@@ -1,0 +1,51 @@
+PREFIX geo: <http://www.geonames.org/ontology#>
+PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX time: <http://www.w3.org/2006/time/>
+
+SELECT ?n ((?countOfFFVenues / ?pop) * 100000 as ?FastFoodDensity) (?sR as ?SuicideRate) ((?cdAverage + ?ucAverage) as ?IbdRate)
+WHERE {
+  ?c geo:population ?pop.
+  ?c geo:officialName ?n.
+  ?s a pa:SuicideStat.
+  ?s dbo:country ?c.
+  ?s pa:rate ?sR.
+  {
+    SELECT ?c (count(?s) as ?countOfFFVenues) ?cdAverage ?ucAverage
+    WHERE {
+      ?s a pa:FastFoodVenue.
+      ?s dbo:country ?c.
+      {
+        SELECT ?c (AVG(?cdR) as ?cdAverage) (AVG(?ucR) as ?ucAverage)
+        WHERE {
+         ?i a pa:CdStat.
+         ?i dbo:country ?c.
+         ?i time:hasEnd ?cdLatest.
+         ?i pa:rate ?cdR.
+
+         ?j a pa:UcStat.
+         ?j dbo:country ?c.
+         ?j time:hasEnd ?ucLatest.
+         ?j pa:rate ?ucR. 
+            {
+              SELECT ?c (MAX(?cdTo) as ?cdLatest) (MAX(?ucTo) as ?ucLatest)
+              WHERE {
+               ?i a pa:CdStat.
+               ?i dbo:country ?c.
+               ?i time:hasEnd ?cdTo.
+
+               ?j a pa:UcStat.
+               ?j dbo:country ?c.
+               ?j time:hasEnd ?ucTo. 
+
+              }
+              GROUP BY ?c
+            }
+          }
+        GROUP BY ?c
+      }
+    }
+    GROUP BY ?c ?cdAverage ?ucAverage
+  }
+}
+ORDER BY DESC(?IbdRate)
