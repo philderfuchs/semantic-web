@@ -62,7 +62,7 @@ public class RdfWriter extends Object {
 	DatatypeProperty populationProperty = model.createDatatypeProperty(geoPrefix + "population");
 
 	OntClass suicideStatClass = model.createClass(paPrefix + "SuicideStat");
-	DatatypeProperty rateProperty = model.createDatatypeProperty(paPrefix + "rate");
+	DatatypeProperty incidenceProperty = model.createDatatypeProperty(paPrefix + "incidence");
 
 	OntClass ibdStatClass = model.createClass(paPrefix + "IbdStat");
 	OntClass cdStatClass = model.createClass(paPrefix + "CdStat");
@@ -111,7 +111,7 @@ public class RdfWriter extends Object {
 					}.getType());
 			for (SuicideRateStudy suicideStat : suicideRateStudies) {
 				model.createResource(paPrefix + "SuicideStat/" + URLEncoder.encode(suicideStat.getCountry(), "UTF-8"))
-						.addProperty(rateProperty, model.createTypedLiteral(suicideStat.getRate()))
+						.addProperty(incidenceProperty, model.createTypedLiteral(suicideStat.getRate()))
 						.addProperty(countryProperty, countryResourceMap.get(suicideStat.getCountry()))
 						.addProperty(RDF.type, suicideStatClass);
 			}
@@ -127,7 +127,7 @@ public class RdfWriter extends Object {
 								model.createTypedLiteral(cdStat.getEndYear(), new XSDYearType("gYear")));
 				model.createResource(paPrefix + "CdStat/" + URLEncoder.encode(cdStat.getCountry(), "UTF-8") + idCounter++)
 						.addProperty(samplingTimeProperty, obsInterval)
-						.addProperty(rateProperty, model.createTypedLiteral(cdStat.getRate()))
+						.addProperty(incidenceProperty, model.createTypedLiteral(cdStat.getRate()))
 						.addProperty(countryProperty, countryResourceMap.get(cdStat.getCountry()))
 						.addProperty(RDF.type, cdStatClass);
 			}
@@ -144,7 +144,7 @@ public class RdfWriter extends Object {
 				model.createResource(
 						paPrefix + "UcStat/" + URLEncoder.encode(ucStat.getCountry(), "UTF-8") + idCounter++)
 						.addProperty(samplingTimeProperty, obsInterval)
-						.addProperty(rateProperty, model.createTypedLiteral(ucStat.getRate()))
+						.addProperty(incidenceProperty, model.createTypedLiteral(ucStat.getRate()))
 						.addProperty(countryProperty, countryResourceMap.get(ucStat.getCountry()))
 						.addProperty(RDF.type, ucStatClass);
 			}
@@ -198,9 +198,9 @@ public class RdfWriter extends Object {
 		countryProperty.addDomain(ibdStatClass);
 		countryProperty.addDomain(fastFoodVenueClass);
 		countryProperty.addRange(countryClass);
-		rateProperty.addDomain(suicideStatClass);
-		rateProperty.addDomain(ibdStatClass);
-		rateProperty.addRange(XSD.xdouble);
+		incidenceProperty.addDomain(suicideStatClass);
+		incidenceProperty.addDomain(ibdStatClass);
+		incidenceProperty.addRange(XSD.xdouble);
 	}
 
 	private <T> ArrayList<T> getListFromJson(String filename, Type typeToken) {

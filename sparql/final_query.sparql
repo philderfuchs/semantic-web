@@ -9,7 +9,7 @@ WHERE {
   ?c geo:officialName ?n.
   ?s a pa:SuicideStat.
   ?s dbo:country ?c.
-  ?s pa:rate ?sR.
+  ?s pa:incidence ?sR.
   {
     SELECT ?c (count(?s) as ?countOfFFVenues) ?cdAverage ?ucAverage
     WHERE {
@@ -22,13 +22,13 @@ WHERE {
          ?i dbo:country ?c.
          ?i pa:samplingTime ?cdSt.
          ?cdSt time:hasEnd ?cdLatest.
-         ?i pa:rate ?cdR.
+         ?i pa:incidence ?cdR.
 
          ?j a pa:UcStat.
          ?j dbo:country ?c.
          ?j pa:samplingTime ?ucSt.
          ?ucSt time:hasEnd ?ucLatest. 
-         ?j pa:rate ?ucR. 
+         ?j pa:incidence ?ucR. 
             {
               SELECT ?c (MAX(?cdEnd) as ?cdLatest) (MAX(?ucEnd) as ?ucLatest)
               WHERE {
