@@ -54,6 +54,8 @@ public class RdfWriter extends Object {
 	String geoPrefix = "http://www.geonames.org/ontology#";
 	String dboPrefix = "http://dbpedia.org/ontology/";
 	String timePrefix = "http://www.w3.org/2006/time/";
+	String foafPrefix = "http://xmlns.com/foaf/0.1/";
+	String yagoPrefix = "http://yago-knowledge.org/resource/";
 
 	OntModel model = ModelFactory.createOntologyModel(modelSpec);
 
@@ -72,8 +74,8 @@ public class RdfWriter extends Object {
 	DatatypeProperty hasEndProperty = model.createDatatypeProperty(timePrefix + "hasEnd");
 	DatatypeProperty incidenceProperty = model.createDatatypeProperty(paPrefix + "incidence");
 
-	OntClass fastFoodVenueClass = model.createClass(paPrefix + "FastFoodVenue");
-	DatatypeProperty nameProperty = model.createDatatypeProperty(paPrefix + "name");
+	OntClass fastFoodRestaurantClass = model.createClass(yagoPrefix + "wikicat_Fast-food_restaurants");
+	DatatypeProperty nameProperty = model.createDatatypeProperty(foafPrefix + "name");
 
 	ObjectProperty countryProperty = model.createObjectProperty(dboPrefix + "country");
 
@@ -162,7 +164,7 @@ public class RdfWriter extends Object {
 			for (FastFoodVenue venue : fastFoodVenues) {
 				Resource r = model.createResource(osmNodeUrl + String.valueOf(venue.getId()))
 						.addProperty(countryProperty, countryResourceMap.get(venue.getCountry()))
-						.addProperty(RDF.type, fastFoodVenueClass);
+						.addProperty(RDF.type, fastFoodRestaurantClass);
 				if (!venue.getName().equals("unknown")) {
 					r.addProperty(nameProperty, venue.getName());
 				}
@@ -189,7 +191,7 @@ public class RdfWriter extends Object {
 
 		// connecting properties
 		countryProperty.addDomain(statClass);
-		countryProperty.addDomain(fastFoodVenueClass);
+		countryProperty.addDomain(fastFoodRestaurantClass);
 		countryProperty.addRange(countryClass);
 
 		// Stats
@@ -207,7 +209,7 @@ public class RdfWriter extends Object {
 		incidenceProperty.addRange(XSD.xdouble);
 
 		// FastFoodVenue
-		nameProperty.addDomain(fastFoodVenueClass);
+		nameProperty.addDomain(fastFoodRestaurantClass);
 	}
 
 	private <T> ArrayList<T> getListFromJson(String filename, Type typeToken) {
