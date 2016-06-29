@@ -7,7 +7,7 @@ SELECT ?n ((?countOfFFVenues / ?pop) * 100000 as ?FastFoodDensity) (?sR as ?Suic
 WHERE {
   ?c geo:population ?pop.
   ?c geo:officialName ?n.
-  ?s a pa:SuicideStat.
+  ?s a pa:ScdStat.
   ?s dbo:country ?c.
   ?s pa:incidence ?sR.
   {

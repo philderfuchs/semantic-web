@@ -61,9 +61,8 @@ public class RdfWriter extends Object {
 	DatatypeProperty geoNameProperty = model.createDatatypeProperty(geoPrefix + "officialName");
 	DatatypeProperty populationProperty = model.createDatatypeProperty(geoPrefix + "population");
 
-	OntClass suicideStatClass = model.createClass(paPrefix + "SuicideStat");
-	DatatypeProperty incidenceProperty = model.createDatatypeProperty(paPrefix + "incidence");
-
+	OntClass statClass = model.createClass(paPrefix + "Stat");
+	OntClass scdStatClass = model.createClass(paPrefix + "ScdStat");
 	OntClass ibdStatClass = model.createClass(paPrefix + "IbdStat");
 	OntClass cdStatClass = model.createClass(paPrefix + "CdStat");
 	OntClass ucStatClass = model.createClass(paPrefix + "UcStat");
@@ -71,6 +70,7 @@ public class RdfWriter extends Object {
 	ObjectProperty samplingTimeProperty = model.createObjectProperty(paPrefix + "samplingTime");
 	DatatypeProperty hasBeginningProperty = model.createDatatypeProperty(timePrefix + "hasBeginning");
 	DatatypeProperty hasEndProperty = model.createDatatypeProperty(timePrefix + "hasEnd");
+	DatatypeProperty incidenceProperty = model.createDatatypeProperty(paPrefix + "incidence");
 
 	OntClass fastFoodVenueClass = model.createClass(paPrefix + "FastFoodVenue");
 	DatatypeProperty nameProperty = model.createDatatypeProperty(paPrefix + "name");
@@ -110,10 +110,16 @@ public class RdfWriter extends Object {
 					new TypeToken<ArrayList<SuicideRateStudy>>() {
 					}.getType());
 			for (SuicideRateStudy suicideStat : suicideRateStudies) {
-				model.createResource(paPrefix + "SuicideStat/" + URLEncoder.encode(suicideStat.getCountry(), "UTF-8"))
+				Resource obsInterval = model
+						.createResource(paPrefix + "ScdObservationInterval"
+								+ URLEncoder.encode(suicideStat.getCountry(), "UTF-8"))
+						.addProperty(hasBeginningProperty, model.createTypedLiteral("2012", new XSDYearType("gYear")))
+						.addProperty(hasEndProperty, model.createTypedLiteral("2012", new XSDYearType("gYear")));
+				model.createResource(paPrefix + "ScdStat/" + URLEncoder.encode(suicideStat.getCountry(), "UTF-8"))
+						.addProperty(samplingTimeProperty, obsInterval)
 						.addProperty(incidenceProperty, model.createTypedLiteral(suicideStat.getRate()))
 						.addProperty(countryProperty, countryResourceMap.get(suicideStat.getCountry()))
-						.addProperty(RDF.type, suicideStatClass);
+						.addProperty(RDF.type, scdStatClass);
 			}
 
 			ArrayList<CdStat> cdStats = this.<CdStat> getListFromJson("cdStats", new TypeToken<ArrayList<CdStat>>() {
@@ -125,7 +131,8 @@ public class RdfWriter extends Object {
 								model.createTypedLiteral(cdStat.getStartYear(), new XSDYearType("gYear")))
 						.addProperty(hasEndProperty,
 								model.createTypedLiteral(cdStat.getEndYear(), new XSDYearType("gYear")));
-				model.createResource(paPrefix + "CdStat/" + URLEncoder.encode(cdStat.getCountry(), "UTF-8") + idCounter++)
+				model.createResource(
+						paPrefix + "CdStat/" + URLEncoder.encode(cdStat.getCountry(), "UTF-8") + idCounter++)
 						.addProperty(samplingTimeProperty, obsInterval)
 						.addProperty(incidenceProperty, model.createTypedLiteral(cdStat.getRate()))
 						.addProperty(countryProperty, countryResourceMap.get(cdStat.getCountry()))
@@ -180,27 +187,27 @@ public class RdfWriter extends Object {
 		populationProperty.addDomain(countryClass);
 		populationProperty.addRange(XSD.integer);
 
-		// Ibd Stat
+		// connecting properties
+		countryProperty.addDomain(statClass);
+		countryProperty.addDomain(fastFoodVenueClass);
+		countryProperty.addRange(countryClass);
+
+		// Stats
+		statClass.addSubClass(ibdStatClass);
+		statClass.addSubClass(scdStatClass);
 		ibdStatClass.addSubClass(cdStatClass);
 		ibdStatClass.addSubClass(ucStatClass);
-		samplingTimeProperty.addDomain(ibdStatClass);
+		samplingTimeProperty.addDomain(statClass);
 		samplingTimeProperty.addRange(obsTimeInterval);
 		hasBeginningProperty.addDomain(obsTimeInterval);
 		hasBeginningProperty.addRange(XSD.gYear);
 		hasEndProperty.addDomain(obsTimeInterval);
 		hasEndProperty.addRange(XSD.gYear);
+		incidenceProperty.addDomain(statClass);
+		incidenceProperty.addRange(XSD.xdouble);
 
 		// FastFoodVenue
 		nameProperty.addDomain(fastFoodVenueClass);
-
-		// shared properties
-		countryProperty.addDomain(suicideStatClass);
-		countryProperty.addDomain(ibdStatClass);
-		countryProperty.addDomain(fastFoodVenueClass);
-		countryProperty.addRange(countryClass);
-		incidenceProperty.addDomain(suicideStatClass);
-		incidenceProperty.addDomain(ibdStatClass);
-		incidenceProperty.addRange(XSD.xdouble);
 	}
 
 	private <T> ArrayList<T> getListFromJson(String filename, Type typeToken) {
