@@ -67,13 +67,15 @@ public class RdfWriter extends Object {
 	OntClass ibdStatClass = model.createClass(paPrefix + "IbdStat");
 	OntClass cdStatClass = model.createClass(paPrefix + "CdStat");
 	OntClass ucStatClass = model.createClass(paPrefix + "UcStat");
-	DatatypeProperty fromProperty = model.createDatatypeProperty(timePrefix + "hasBeginning");
-	DatatypeProperty toProperty = model.createDatatypeProperty(timePrefix + "hasEnd");
+	OntClass obsTimeInterval = model.createClass(timePrefix + "Interval");
+	ObjectProperty samplingTimeProperty = model.createObjectProperty(paPrefix + "samplingTime");
+	DatatypeProperty hasBeginningProperty = model.createDatatypeProperty(timePrefix + "hasBeginning");
+	DatatypeProperty hasEndProperty = model.createDatatypeProperty(timePrefix + "hasEnd");
 
 	OntClass fastFoodVenueClass = model.createClass(paPrefix + "FastFoodVenue");
 	DatatypeProperty nameProperty = model.createDatatypeProperty(paPrefix + "name");
 
-	DatatypeProperty countryProperty = model.createDatatypeProperty(dboPrefix + "country");
+	ObjectProperty countryProperty = model.createObjectProperty(dboPrefix + "country");
 
 	public void write() {
 		this.initializeModel();
@@ -114,31 +116,34 @@ public class RdfWriter extends Object {
 						.addProperty(RDF.type, suicideStatClass);
 			}
 
-			ArrayList<CdStat> cdStats = this.<CdStat> getListFromJson("cdStats",
-					new TypeToken<ArrayList<CdStat>>() {
-					}.getType());
+			ArrayList<CdStat> cdStats = this.<CdStat> getListFromJson("cdStats", new TypeToken<ArrayList<CdStat>>() {
+			}.getType());
 			int idCounter = 0;
 			for (CdStat cdStat : cdStats) {
-				model.createResource(paPrefix + "CdStat/" + URLEncoder.encode(cdStat.getCountry(), "UTF-8") + idCounter++)
-						.addProperty(fromProperty,
+				Resource obsInterval = model.createResource(paPrefix + "CdObservationInterval" + idCounter)
+						.addProperty(hasBeginningProperty,
 								model.createTypedLiteral(cdStat.getStartYear(), new XSDYearType("gYear")))
-						.addProperty(toProperty,
-								model.createTypedLiteral(cdStat.getEndYear(), new XSDYearType("gYear")))
+						.addProperty(hasEndProperty,
+								model.createTypedLiteral(cdStat.getEndYear(), new XSDYearType("gYear")));
+				model.createResource(paPrefix + "CdStat/" + URLEncoder.encode(cdStat.getCountry(), "UTF-8") + idCounter++)
+						.addProperty(samplingTimeProperty, obsInterval)
 						.addProperty(rateProperty, model.createTypedLiteral(cdStat.getRate()))
 						.addProperty(countryProperty, countryResourceMap.get(cdStat.getCountry()))
 						.addProperty(RDF.type, cdStatClass);
 			}
-			
-			ArrayList<UcStat> ucStats = this.<UcStat> getListFromJson("ucStats",
-					new TypeToken<ArrayList<UcStat>>() {
-					}.getType());
+
+			ArrayList<UcStat> ucStats = this.<UcStat> getListFromJson("ucStats", new TypeToken<ArrayList<UcStat>>() {
+			}.getType());
 			idCounter = 0;
 			for (UcStat ucStat : ucStats) {
-				model.createResource(paPrefix + "UcStat/" + URLEncoder.encode(ucStat.getCountry(), "UTF-8") + idCounter++)
-						.addProperty(fromProperty,
+				Resource obsInterval = model.createResource(paPrefix + "UcObservationInterval" + idCounter)
+						.addProperty(hasBeginningProperty,
 								model.createTypedLiteral(ucStat.getStartYear(), new XSDYearType("gYear")))
-						.addProperty(toProperty,
-								model.createTypedLiteral(ucStat.getEndYear(), new XSDYearType("gYear")))
+						.addProperty(hasEndProperty,
+								model.createTypedLiteral(ucStat.getEndYear(), new XSDYearType("gYear")));
+				model.createResource(
+						paPrefix + "UcStat/" + URLEncoder.encode(ucStat.getCountry(), "UTF-8") + idCounter++)
+						.addProperty(samplingTimeProperty, obsInterval)
 						.addProperty(rateProperty, model.createTypedLiteral(ucStat.getRate()))
 						.addProperty(countryProperty, countryResourceMap.get(ucStat.getCountry()))
 						.addProperty(RDF.type, ucStatClass);
@@ -164,19 +169,26 @@ public class RdfWriter extends Object {
 	}
 
 	private void initializeModel() {
+		// NS Prefixes
+		model.setNsPrefix("pa", paPrefix);
+		model.setNsPrefix("geo", geoPrefix);
+		model.setNsPrefix("dbo", dboPrefix);
+		model.setNsPrefix("time", timePrefix);
+
 		// Country
 		geoNameProperty.addDomain(countryClass);
 		populationProperty.addDomain(countryClass);
 		populationProperty.addRange(XSD.integer);
 
-
 		// Ibd Stat
 		ibdStatClass.addSubClass(cdStatClass);
 		ibdStatClass.addSubClass(ucStatClass);
-		fromProperty.addDomain(ibdStatClass);
-		fromProperty.addRange(XSD.gYear);
-		toProperty.addDomain(ibdStatClass);
-		toProperty.addRange(XSD.gYear);
+		samplingTimeProperty.addDomain(ibdStatClass);
+		samplingTimeProperty.addRange(obsTimeInterval);
+		hasBeginningProperty.addDomain(obsTimeInterval);
+		hasBeginningProperty.addRange(XSD.gYear);
+		hasEndProperty.addDomain(obsTimeInterval);
+		hasEndProperty.addRange(XSD.gYear);
 
 		// FastFoodVenue
 		nameProperty.addDomain(fastFoodVenueClass);
@@ -189,11 +201,6 @@ public class RdfWriter extends Object {
 		rateProperty.addDomain(suicideStatClass);
 		rateProperty.addDomain(ibdStatClass);
 		rateProperty.addRange(XSD.xdouble);
-
-		model.setNsPrefix("pa", paPrefix);
-		model.setNsPrefix("geo", geoPrefix);
-		model.setNsPrefix("dbo", dboPrefix);
-		model.setNsPrefix("time", timePrefix);
 	}
 
 	private <T> ArrayList<T> getListFromJson(String filename, Type typeToken) {

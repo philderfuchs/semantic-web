@@ -20,24 +20,27 @@ WHERE {
         WHERE {
          ?i a pa:CdStat.
          ?i dbo:country ?c.
-         ?i time:hasEnd ?cdLatest.
+         ?i pa:samplingTime ?cdSt.
+         ?cdSt time:hasEnd ?cdLatest.
          ?i pa:rate ?cdR.
 
          ?j a pa:UcStat.
          ?j dbo:country ?c.
-         ?j time:hasEnd ?ucLatest.
+         ?j pa:samplingTime ?ucSt.
+         ?ucSt time:hasEnd ?ucLatest. 
          ?j pa:rate ?ucR. 
             {
-              SELECT ?c (MAX(?cdTo) as ?cdLatest) (MAX(?ucTo) as ?ucLatest)
+              SELECT ?c (MAX(?cdEnd) as ?cdLatest) (MAX(?ucEnd) as ?ucLatest)
               WHERE {
                ?i a pa:CdStat.
                ?i dbo:country ?c.
-               ?i time:hasEnd ?cdTo.
+               ?i pa:samplingTime ?cdSt.
+               ?cdSt time:hasEnd ?cdEnd.
 
                ?j a pa:UcStat.
                ?j dbo:country ?c.
-               ?j time:hasEnd ?ucTo. 
-
+               ?j pa:samplingTime ?ucSt.
+               ?ucSt time:hasEnd ?ucEnd.
               }
               GROUP BY ?c
             }
