@@ -1,9 +1,10 @@
-PREFIX geo: <http://www.geonames.org/ontology#>
 PREFIX pa: <http://www.imn.htwk-leipzig.de/~panders/>
+PREFIX geo: <http://www.geonames.org/ontology#>
 PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX time: <http://www.w3.org/2006/time/>
 PREFIX yago: <http://yago-knowledge.org/resource/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 SELECT ?n ((?countOfFFVenues / ?pop) * 100000 as ?FastFoodDensity) (?sR as ?SuicideRate) ((?cdAverage + ?ucAverage) as ?IbdRate)
 WHERE {

@@ -24,8 +24,7 @@ public class CountryExtractor {
 		System.out.println("Extracting countries");
 		ArrayList<Country> countries = new ArrayList<>();
 		Document doc = Jsoup.connect("https://en.wikipedia.org/wiki/Europe").get();
-		Elements tbodies = doc.getElementsByTag("tbody");
-		Element countryTable = tbodies.get(1);
+		Element countryTable = doc.getElementsByTag("tbody").get(1);
 		for (Element row : countryTable.getElementsByTag("tr")) {
 			if (row.child(2).text().equals("Name"))
 				continue;
